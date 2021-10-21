@@ -1,5 +1,11 @@
-@import "/src/assets/styles/partials/colors.scss";
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins/_breakpoints";
+@import "/src/assets/styles/partials/variables.scss";
+@import "/src/assets/styles/partials/header.scss";
+@import "/src/assets/styles/partials/layout.scss";
+@import "/src/assets/styles/partials/hotels.scss";
 
-h1 {
-  color: $orange;
+h2 {
+  font-family: $headings-font;
 }

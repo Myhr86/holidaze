@@ -1,0 +1,197 @@
+.hotelLanding {
+  width: 100%;
+  position: relative;
+  padding-right: 0;
+}
+
+.hotelLanding__image {
+  width: 100%;
+}
+
+.hotelLanding__elem {
+  height: 100px;
+  width: 40%;
+  background: rgba(30, 30, 30, 0.9);
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  border-radius: 8px;
+}
+
+.hotelLanding__header {
+  color: $orange;
+  position: absolute;
+  left: 20%;
+  top: 30%;
+  text-transform: uppercase;
+}
+
+#hotelsH3 {
+  width: 100%;
+  background: $darkblue;
+  color: $white;
+  margin-bottom: 0;
+  padding-top: 2.5%;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.hotels {
+  background: $darkblue;
+}
+
+.hotels__textDiv {
+  background: $white;
+  margin: 0 auto;
+  margin-top: 50px;
+  padding-bottom: 5%;
+  padding-left: 0;
+  padding-right: 0;
+  height: 450px;
+  width: 400px;
+}
+
+.hotels__image {
+  width: 100%;
+}
+
+.hotels__header {
+  margin-top: 5%;
+  margin-left: 5%;
+}
+
+.hotels__hr {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.hotels__text {
+  margin-left: 5%;
+  color: $black;
+  width: 90%;
+}
+
+.hotels__textBox {
+  width: 100%;
+  height: 100px;
+  background: $lightblue;
+  position: relative;
+}
+
+.hotelSpecific {
+  width: 100%;
+  height: 400px;
+  padding-right: 0;
+  position: relative;
+}
+
+.hotelSpecific__image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.hotelSpecific__box {
+  position: absolute;
+  top: 50%;
+  left: 33%;
+  padding: 20px;
+  width: 500px;
+  background: rgba(30, 30, 30, 0.9);
+  border-radius: 8px;
+}
+
+.hotelSpecific__header {
+  color: $orange;
+  text-align: center;
+}
+
+.specificInfo {
+  background: $darkblue;
+}
+
+.specificInfo__box {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.specificInfo__heading {
+  margin-left: 12.5%;
+  margin-top: 5%;
+}
+
+.specificInfo__hr {
+  margin-top: 0;
+  margin-left: 12.5%;
+  width: 10%;
+  color: $orange;
+}
+
+.specificInfo__para {
+  width: 50%;
+  margin-left: 25%;
+}
+
+.specificInfo__img {
+  width: 80%;
+  margin-bottom: 10%;
+}
+
+@include media-breakpoint-down(sm) {
+  .hotelLanding__elem {
+    width: 90%;
+    height: 50px;
+    background: rgba(30, 30, 30, 0.9);
+    position: absolute;
+    top: 50%;
+    left: 6%;
+    border-radius: 8px;
+  }
+
+  .hotelLanding__header {
+    top: 10%;
+    left: 5%;
+  }
+
+  .hotelSpecific__box {
+    left: 5%;
+    height: 50px;
+    width: 90%;
+    padding: 0px;
+  }
+
+  .hotelSpecific__header {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 0;
+  }
+
+  .specificInfo__box {
+    display: block;
+  }
+
+  .specificInfo__heading {
+    margin-left: 5%;
+  }
+
+  .specificInfo__para {
+    width: 80%;
+    margin-left: 5%;
+  }
+
+  .specificInfo__box2 {
+    margin-left: 3%;
+  }
+
+  .specificInfo__img {
+    width: 100%;
+  }
+
+  .hotels__header {
+    color: $orange;
+  }
+
+  .hotels__hr {
+
+  }
+}

@@ -1,0 +1,344 @@
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+
+h1,h2,h3,h4,h5 {
+  font-family: $headings-font;
+}
+
+p {
+  color: $white;
+  font-family: $body-font;
+}
+
+h2 {
+  font-size: $h2-size;
+}
+
+h3 {
+  color: $orange;
+}
+
+button.btn-primary{
+  width: 170px;
+  margin-right: 2%;
+  color: $white;
+  background: $orange;
+  border: none;
+}
+
+#enquiryBtn {
+  width: 200px;
+  height: 36px;
+  margin: 0 auto;
+  margin-top: 5%;
+
+}
+
+.searchContainer {
+  display: grid;
+  grid-template-rows: 100% 100%;
+}
+
+.searchField {
+  margin: 0 auto;
+  margin-top: 5%;
+  background: $black;
+  opacity: 0.8;
+  width: 200px;
+}
+
+div.res {
+  color: white;
+}
+
+.icons {
+  width: 30%;
+  height: 100%;
+  position: relative;
+}
+
+.fa-facebook {
+  position: absolute;
+  top: 36%;
+  left: 5%;
+  font-size: 32px;
+  color: white;
+}
+
+.fa-twitter {
+  position: absolute;
+  top: 36%;
+  left: 41%;
+  font-size: 32px;
+  color: white;
+}
+
+.fa-instagram {
+  position: absolute;
+  top: 36%;
+  left: 23%;
+  font-size: 32px;
+  color: white;
+}
+
+.fa-hiking {
+  position: absolute;
+  font-size: 42px;
+  color: $orange;
+  left: 50%;
+  top: 30%;
+}
+
+.fa-walking {
+  position: absolute;
+  font-size: 42px;
+  color: $orange;
+  left: 50%;
+  top: 30%;
+}
+
+#experienceH3 {
+  width: 100%;
+  background: $grey;
+  color: $black;
+  margin-bottom: 0;
+  padding-top: 2.5%;
+  text-align: center;
+}
+
+.container-fluid {
+  margin: 0;
+  padding:0;
+  width: 100%;
+}
+
+.row {
+  margin-right: 0;
+}
+
+.block {
+  width: 100%;
+  position: relative;
+  padding-right: 0;
+}
+
+.block__image {
+  width: 100%;
+}
+
+.block__elem {
+  height: 110px;
+  width: 60%;
+  background: rgba(30, 30, 30, 0.9);
+  position: absolute;
+  top: 30%;
+  left: 20%;
+  border-radius: 8px;
+}
+
+.block__header {
+  color: $white;
+  padding: 15px;
+  padding-left: 30px;
+}
+
+.hikeBlock {
+  background: $grey;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.hikeBlock__elem {
+  margin: 0 auto;
+  margin-top: 50px;
+  padding-bottom: 5%;
+}
+
+.hikeBlock__elem:first-child {
+  margin-right: 1%;
+}
+
+.hikeBlock__elem:last-child {
+  margin-left: 1%;
+}
+
+.hikeBlock__image {
+  width: 100%;
+}
+
+.hikeBlock__textBox {
+  width: 100%;
+  height: 100px;
+  background: $lightblue;
+  position: relative;
+}
+
+.hotelBlock {
+  height: 700px;
+  width: 100%;
+  margin-right: 0;
+  margin-left: 0;
+  background: $darkblue;
+}
+
+.hotelBlock__elem:first-child {
+  padding-top: 170px;
+  position: relative;
+}
+
+.hotelBlock__elem:last-child {
+  padding-top: 270px;
+}
+
+.hotelBlock__image {
+  width: 500px;
+  border-radius: 50%;
+  position: absolute;
+  right: 5%;
+}
+
+.hotelBlock__para {
+  width: 60%;
+}
+
+footer {
+  width: 100%;
+  height: 130px;
+  background: $lightblue;
+}
+
+@include media-breakpoint-down(xxl) {
+  nav a{
+    width: 50%;
+  }
+
+  .block__elem {
+    height: 150px;
+  }
+
+  .hotelBlock {
+    height: 500px;
+  }
+  .hotelBlock__elem:first-child {
+    padding-top: 20px;
+    margin-left: 0;
+  }
+
+  .hotelBlock__elem:last-child {
+    padding-top: 90px;
+    margin-left: 0;
+  }
+
+  .hotelBlock__heading {
+    margin-left: 0;
+  }
+
+  .hotelBlock__para {
+    width: 40%;
+  }
+
+  .hotelBlock__image {
+    width: 400px;
+    height: 400px;
+    margin-top: 5%;
+  }
+
+  footer {
+    margin-top: 200px;
+  }
+}
+
+@include media-breakpoint-down(lg) {
+  .block__elem {
+    height: 210px;
+    top: 20%;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .block__elem {
+    height: 170px;
+    width: 90%;
+    top: 10%;
+    left: 5%;
+}
+    .block__header {
+      padding-left: 2%;
+    }
+
+}
+
+@include media-breakpoint-down(sm) {
+  nav {
+    display: block;
+  }
+
+  .searchContainer {
+    position: absolute;
+    top: -120%;
+    left: 30%;
+  }
+
+  .block__elem {
+    width: 100%;
+    height: 180px;
+    left: 0;
+    top: 65%;
+    bottom: 0;
+    background: rgba(30, 30, 30, 0.9);
+  }
+
+  .block__header {
+    padding-left: 15px;
+  }
+
+  .block {
+    height: 500px;
+    background: $darkblue;
+  }
+
+  #experienceH3 {
+    background: none;
+    padding-bottom: 30%;
+    position: absolute;
+    top: 100%;
+  }
+
+  .icons {
+    width: 100%;
+    margin-left: 23%;
+  }
+}
+
+@include media-breakpoint-only(xs) {
+  .searchContainer {
+    position: absolute;
+    top: 110%;
+    left: 30%;
+  }
+
+  #search {
+    height: 400px;
+  }
+
+  .block__elem {
+    top: 5%;
+    height: 150px;
+    background: rgba(30, 30, 30, 0.7);
+  }
+
+  .block__header {
+    font-size: 1.6rem;
+    margin-left: 2%;
+  }
+}
