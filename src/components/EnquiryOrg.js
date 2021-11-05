@@ -19,7 +19,7 @@ export default function Enquiry() {
     const firstName = event.target.firstName.value;
     const lastName = event.target.firstName.value;
     const email = event.target.email.value;
-    const message = event.target.firstName.value;
+    const message = event.target.message.value;
 
     console.log(event.target.email.value);
   }

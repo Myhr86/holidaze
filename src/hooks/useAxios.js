@@ -8,7 +8,8 @@ export default function useAxios() {
   const [auth] = useContext(AuthContext);
 
   const apiClient = axios.create({
-    baseURL: url
+    baseURL: url,
+    crossorigin: true
   });
 
   apiClient.interceptors.request.use(function(config) {

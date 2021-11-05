@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import RecievedForms from "./RecievedForms";
+import { Link } from "react-router-dom";
 import useAxios from "../hotels/useAxios";
 import PropTypes from "prop-types";
 import Heading from "../layout/Heading";
@@ -30,6 +32,8 @@ useEffect(function () {
   return (
     <>
       <Heading content="Admin" />
+        <Link to={`/messages`}>Messages</Link>
+        <Link to={`/addhotel`}>Add a Hotel</Link>
     </>
   );
 }

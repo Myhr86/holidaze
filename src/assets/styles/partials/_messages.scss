@@ -1,0 +1,39 @@
+.messages {
+  background: $darkblue;
+  padding-bottom: 5%;
+}
+
+.messages__textDiv {
+  background: $white;
+  margin: 0 auto;
+  margin-top: 50px;
+  padding-bottom: 5%;
+  padding-left: 0;
+  padding-right: 0;
+  width: 400px;
+}
+
+#messagesH2 {
+  background: $darkblue;
+  color: $white;
+  padding-left: 3%;
+  padding-top: 1%;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.messages__header {
+  margin-top: 5%;
+  margin-left: 5%;
+}
+
+.messages__hr {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.messages__text {
+  margin-left: 5%;
+  color: $black;
+  width: 90%;
+}

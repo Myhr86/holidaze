@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
@@ -8,6 +8,7 @@ import useAxios from "../../hooks/useAxios";
 
 const schema = yup.object().shape({
 	title: yup.string().required("Title is required"),
+	slug: yup.string("_").required("_")
 });
 
 export default function AddPost() {
@@ -30,7 +31,7 @@ export default function AddPost() {
 		console.log(data);
 
 		try {
-			const response = await http.post("/wp/v2/posts", data);
+			const response = await http.post("/wp/v2/pages", data);
 			console.log("response", response.data);
 			history.push("/admin");
 		} catch (error) {
@@ -41,6 +42,29 @@ export default function AddPost() {
 		}
 	}
 
+	const [hotels, setHotels] = useState([]);
+	const [loading, setLoading] = useState(true);
+	const [error, setError] = useState(null);
+
+	useEffect(function() {
+    async function getHotels() {
+      try {
+        const response = await http.get("wp/v2/pages");
+        setHotels(response.data);
+        console.log(response.data)
+      } catch (error) {
+        console.log(error);
+        setError(error.toString());
+      } finally {
+        setLoading(false);
+      }
+    }
+
+		getHotels();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+
 	return (
 		<>
 			<form onSubmit={handleSubmit(onSubmit)}>
@@ -50,7 +74,9 @@ export default function AddPost() {
 						<input name="title" placeholder="Title" ref={register} />
 						{errors.title && <FormError>{errors.title.message}</FormError>}
 					</div>
-
+					<div id="slugPrefix">
+						<input name="slug" defaultValue="_" ref={register} />
+					</div>
 					<div>
 						<textarea name="content" placeholder="Content" ref={register} />
 					</div>

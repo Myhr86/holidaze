@@ -4,6 +4,8 @@ import HomePage from "./components/home/HomePage";
 import Contact from "./components/contact/Contact";
 import Hotels from "./components/hotels/Hotels";
 import LoginPage from "./components/login/LoginPage";
+import RecievedForms from "./components/admin/RecievedForms";
+import AddHotel from "./components/admin/AddHotel";
 import Header from "./components/layout/Header";
 import Container from 'react-bootstrap/Container'
 import ViewHotel from "./components/details/ViewHotel";
@@ -32,6 +34,12 @@ function App() {
             </Route>
             <Route path="/admin" exact>
 							<AdminPage />
+						</Route>
+            <Route path="/messages" exact>
+							<RecievedForms />
+						</Route>
+            <Route path="/addhotel" exact>
+							<AddHotel />
 						</Route>
             <Route path="/hotels">
               <Hotels />

@@ -1,11 +1,11 @@
 import Heading from "../layout/Heading";
-import ContactForm from "./Form";
+import ContactForm from "./ContactForm";
 
 export default function Contact() {
   return (
     <>
-      <Heading content="Contact" />
       <ContactForm />
+
     </>
   );
 }

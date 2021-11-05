@@ -10,7 +10,6 @@ body {
   width: 100%;
 }
 
-
 h1,h2,h3,h4,h5 {
   font-family: $headings-font;
 }
@@ -26,6 +25,10 @@ h2 {
 
 h3 {
   color: $orange;
+}
+
+#slugPrefix {
+  display: none;
 }
 
 button.btn-primary{
@@ -52,7 +55,7 @@ button.btn-primary{
 .searchField {
   margin: 0 auto;
   margin-top: 5%;
-  background: $black;
+  background: none;
   opacity: 0.8;
   width: 200px;
 }
@@ -174,6 +177,11 @@ div.res {
 
 .hikeBlock__image {
   width: 100%;
+}
+
+.hikeBlock__image:hover {
+  cursor: pointer;
+  opacity: 0.6;
 }
 
 .hikeBlock__textBox {
