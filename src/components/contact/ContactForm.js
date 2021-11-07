@@ -68,10 +68,11 @@ const schema = yup.object().shape({
 		data.status = "publish";
 
 		try {
-      var newData = (data.name + data.email + data.subject + data.message);
-      data = {content: newData, title: data.subject};
+      var newData = (data.name + "|" + data.email + "|" + data.subject + "|" + data.message);
+      data = {content: newData, title: data.subject, status: "publish"};
       console.log(data)
 			const response = await http.post("/wp/v2/myforms", data);
+      window.location.reload();
 			console.log("response", response.data);
 
 		} catch (error) {
@@ -88,7 +89,7 @@ const schema = yup.object().shape({
 				{serverError && <FormError>{serverError}</FormError>}
 				<fieldset disabled={submitting}>
 					<div>
-						<input name="name" placeholder="Full Name" ref={register} />
+						<input name="name" placeholder="Full Name" ref={register}/>
 						{errors.title && <FormError>{errors.title.message}</FormError>}
 					</div>
 

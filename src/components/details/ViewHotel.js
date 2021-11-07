@@ -5,6 +5,7 @@ import Footer from "../Footer";
 import FindUrl from "../FindUrl";
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
+import Enquiry from "../Enquiry";
 
 export default function ViewHotel() {
   const [hotels, setHotels] = useState([]);
@@ -67,6 +68,7 @@ export default function ViewHotel() {
               <Col sm={1} className="specificInfo__box2">
                 <img className="specificInfo__img" src={trimUrl}></img>
               </Col>
+              <Enquiry />
             </Row>
             </Col>
             <Footer />

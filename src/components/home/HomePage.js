@@ -3,7 +3,6 @@ import walk from "../../assets/img/walk.jpg";
 import hike from "../../assets/img/hike.jpg";
 import pillow from "../../assets/img/pillow.jpg";
 import { Link } from "react-router-dom";
-import Enquiry from "../Enquiry";
 import Footer from "../Footer";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -32,7 +31,6 @@ export default function HomePage() {
           </h2>
           <div className="searchContainer">
             <Search />
-            <Enquiry />
           </div>
         </div>
         <h3 id="experienceH3">Experience Bergen</h3>

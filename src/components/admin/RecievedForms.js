@@ -40,17 +40,24 @@ export default function RecievedForms() {
       {posts.map(media => {
         console.log({media})
         let para = media.content.rendered;
-        let hotelDesc = para.slice(3, -5);
+        let paraSplice = para.split("|");
+
+        for (let i = 0; i < paraSplice.length; i++) {
+          var firstPara = paraSplice[0].replace('<p>','');
+          var lastPara = paraSplice[3].replace('</p>','');
+
 
         return (
-
-
           <Col className="messages__textDiv" key={media.id}>
             <h4 className="messages__header">{media.title.rendered}</h4>
             <hr className="messages__hr" />
-            <p className="messages__text">{hotelDesc}</p>
+            <p className="messages__text"><span className="labelSpan">Name:</span> {firstPara}</p>
+            <p className="messages__text"><span className="labelSpan">Email:</span> {paraSplice[1]}</p>
+            <p className="messages__text"><span className="labelSpan">Subject:</span> {paraSplice[2]}</p>
+            <p className="messages__text"><span className="labelSpan">Message:</span> {lastPara}</p>
           </Col>
         );
+        }
       })}
     </Row>
     </>
