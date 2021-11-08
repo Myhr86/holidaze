@@ -9,8 +9,8 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import AuthContext from "../context/AuthContext";
+import useAxios from "../hooks/useAxios";
 import axios from "axios";
-import useAxios from "./hotels/useAxios";
 import { useParams } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -30,7 +30,6 @@ export default function Enquiry() {
 		resolver: yupResolver(schema),
 	});
 
-  console.log(auth);
   async function sgnIn() {
     try {
       const response2 = await axios.post(url, privData);
@@ -47,22 +46,6 @@ if (auth === null) {
   sgnIn();
   }
 
-async function signIn() {
-  if (auth === null) {
-  try {
-    const response2 = await axios.post(url, privData);
-    console.log("response2", response2.data);
-    var responseData = response2.data;
-    setAuth(responseData);
-    console.log(auth);
-
-  } catch (error) {
-    console.log("error", error);
-  } finally {
-  }
-}
-}
-
 const [submitting, setSubmitting] = useState(false);
 const [serverError, setServerError] = useState(null);
 
@@ -78,7 +61,7 @@ const [serverError, setServerError] = useState(null);
   useEffect(function() {
     async function getHotels() {
       try {
-        const response = await http.get("wp/v2/pages");
+        const response = await http.get("wp/v2/posts/");
         setHotels(response.data);
         console.log(response)
       } catch (error) {
@@ -94,28 +77,24 @@ const [serverError, setServerError] = useState(null);
   }, []);
 
 
-  /*event.preventDefault();
-    const firstName = event.target.firstName.value;
-    const lastName = event.target.firstName.value;
-    const email = event.target.email.value;
-    const message = event.target.firstName.value;*/
     {hotels.map(hotel => {
       if(id == hotel.id) {
-        console.log(hotel.title.rendered)
+        var thisHotel = hotel.title.rendered;
 
       }
     })}
 
 
   async function onSubmit(data) {
-    console.log("yo")
     setSubmitting(true);
     setServerError(null);
-    data.status = "publish";
 
     try {
-      console.log(data.target.form.data)
-      const response = await http.post("/acf/v3/posts", data);
+      console.log(auth);
+      console.log(data);
+      var newData = (data.firstName + "|" + data.firstName + "|" + data.email + "|" + data.message);
+      data = {content: newData, title: data.firstName, status: "publish"};
+      const response = await http.post("wp/v2/enquiries", data);
       console.log("response", response.data);
 
     } catch (error) {
@@ -149,17 +128,18 @@ const [serverError, setServerError] = useState(null);
             <Col xl={6}>
           <Form.Group className="mb-3" controlId="lastName">
             <Form.Label>Last Name</Form.Label>
-            <Form.Control type="text" placeholder="Last Name" ref={register} />
+            <Form.Control name="lastName" type="text" placeholder="Last Name" ref={register} />
           </Form.Group>
           </Col>
           </Row>
           <Form.Group className="mb-3" controlId="email">
             <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" ref={register} />
+            <Form.Control name="email" type="email" placeholder="Enter email" ref={register} />
           </Form.Group>
           <Form.Group className="mb-3" controlId="message">
           <Form.Label>Leave us your message here</Form.Label>
           <Form.Control
+            name="message"
             as="textarea"
             placeholder="Leave a comment here"
             style={{ height: '100px' }}

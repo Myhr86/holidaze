@@ -11,8 +11,10 @@ function Nav() {
     setAuth(null);
     history.push("/");
   }
+
   if (auth !== null) {
     var userType = auth.user_display_name;
+    console.log(userType);
   }
 
   return (

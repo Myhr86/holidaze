@@ -64,13 +64,12 @@ const schema = yup.object().shape({
 	async function onSubmit(data) {
 		setSubmitting(true);
 		setServerError(null);
-    console.log(auth);
+
 		data.status = "publish";
 
 		try {
       var newData = (data.name + "|" + data.email + "|" + data.subject + "|" + data.message);
       data = {content: newData, title: data.subject, status: "publish"};
-      console.log(data)
 			const response = await http.post("/wp/v2/myforms", data);
       window.location.reload();
 			console.log("response", response.data);

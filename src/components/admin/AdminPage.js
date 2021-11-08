@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import useAxios from "../hotels/useAxios";
 import PropTypes from "prop-types";
 import Heading from "../layout/Heading";
+import Enquiries from "./enquiries/Enquiries";
 
 export default function AdminPage({ children }) {
   const [posts, setPosts] = useState([]);
@@ -34,6 +35,7 @@ useEffect(function () {
       <Heading content="Admin" />
         <Link to={`/messages`}>Messages</Link>
         <Link to={`/addhotel`}>Add a Hotel</Link>
+        <Enquiries />
     </>
   );
 }
