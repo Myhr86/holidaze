@@ -4,16 +4,21 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import FormError from "../common/FormError";
+import FindUrl from "../FindUrl";
 import useAxios from "../../hooks/useAxios";
+
+const imageUrl = "https://skjaerseth.net/wpress/wp-content/uploads/2021/10/";
 
 const schema = yup.object().shape({
 	title: yup.string().required("Title is required"),
-	slug: yup.string("_").required("_")
+	slug: yup.string("_").required("_"),
 });
 
 export default function AddPost() {
 	const [submitting, setSubmitting] = useState(false);
 	const [serverError, setServerError] = useState(null);
+
+	const [imgName, setImgName] = useState(null);
 
 	const history = useHistory();
 	const http = useAxios();
@@ -31,6 +36,8 @@ export default function AddPost() {
 		console.log(data);
 
 		try {
+			var newData = (data.name + "|" + data.email + "|" + data.subject + "|" + data.message);
+      data = {content: newData, title: data.subject, status: "publish"};
 			const response = await http.post("/wp/v2/pages", data);
 			console.log("response", response.data);
 			history.push("/admin");
@@ -65,15 +72,26 @@ export default function AddPost() {
   }, []);
 
 
+
+	function getImg(event) {
+		let inputVal = event.target.value;
+		let newString = inputVal.slice(12);
+		console.log(imageUrl + newString);
+		setImgName(imageUrl + newString);
+		console.log(this);
+	}
+
+
 	return (
 		<>
 			<form onSubmit={handleSubmit(onSubmit)}>
 				{serverError && <FormError>{serverError}</FormError>}
 				<fieldset disabled={submitting}>
 					<div>
-						<input name="title" placeholder="Title" ref={register} />
+						<input name="title" placeholder="Hotel Name" ref={register} />
 						{errors.title && <FormError>{errors.title.message}</FormError>}
 					</div>
+					<input id="fileUpload" type="file" name="better_featured_image" ref={register}></input>
 					<div id="slugPrefix">
 						<input name="slug" defaultValue="_" ref={register} />
 					</div>

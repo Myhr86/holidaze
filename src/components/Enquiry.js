@@ -48,7 +48,7 @@ if (auth === null) {
 
 const [submitting, setSubmitting] = useState(false);
 const [serverError, setServerError] = useState(null);
-
+const [thisHotel, setThisHotel] = useState(null);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -61,7 +61,7 @@ const [serverError, setServerError] = useState(null);
   useEffect(function() {
     async function getHotels() {
       try {
-        const response = await http.get("wp/v2/posts/");
+        const response = await http.get("wp/v2/pages/");
         setHotels(response.data);
         console.log(response)
       } catch (error) {
@@ -76,13 +76,15 @@ const [serverError, setServerError] = useState(null);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-
+if (thisHotel === null || undefined) {
     {hotels.map(hotel => {
       if(id == hotel.id) {
         var thisHotel = hotel.title.rendered;
-
+        console.log(thisHotel);
+        setThisHotel(thisHotel);
       }
     })}
+}
 
 
   async function onSubmit(data) {
@@ -90,10 +92,12 @@ const [serverError, setServerError] = useState(null);
     setServerError(null);
 
     try {
-      console.log(auth);
       console.log(data);
+      console.log(id);
+      console.log(thisHotel);
+
       var newData = (data.firstName + "|" + data.firstName + "|" + data.email + "|" + data.message);
-      data = {content: newData, title: data.firstName, status: "publish"};
+      data = {content: newData, title: thisHotel, status: "publish"};
       const response = await http.post("wp/v2/enquiries", data);
       console.log("response", response.data);
 
