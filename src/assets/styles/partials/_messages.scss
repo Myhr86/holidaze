@@ -3,6 +3,15 @@
   padding-bottom: 5%;
 }
 
+.adminLinks {
+  width: 30%;
+  padding-right: 0;
+}
+
+.adminLinks:last-of-type {
+  padding-left: 0;
+}
+
 .messages__textDiv {
   background: $white;
   margin: 0 auto;
@@ -13,13 +22,16 @@
   width: 400px;
 }
 
-#messagesH2 {
-  background: $darkblue;
+.messagesH3 {
+  background: $lightblue;
   color: $white;
+  width: 60%;
   padding-left: 3%;
   padding-top: 1%;
-  padding-bottom: 0;
+  padding-bottom: 1%;
   margin-bottom: 0;
+  margin-top: 3%;
+  text-align: center;
 }
 
 .messages__header {
@@ -39,6 +51,31 @@
   width: 90%;
 }
 
+div.messages.row {
+  --bs-gutter-x: 0;
+}
+
 .labelSpan {
   font-weight: bold;
+}
+
+@include media-breakpoint-down(xxl) {
+
+}
+
+@include media-breakpoint-down(lg) {
+
+}
+
+@include media-breakpoint-down(md) {
+
+
+}
+
+@include media-breakpoint-down(sm) {
+
+}
+
+@include media-breakpoint-only(xs) {
+
 }

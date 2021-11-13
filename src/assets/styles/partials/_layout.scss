@@ -330,13 +330,17 @@ footer {
     width: 100%;
     margin-left: 23%;
   }
+  .hotelBlock {
+    height: 650px;
+    margin-left: 1%;
+  }
 }
 
 @include media-breakpoint-only(xs) {
   .searchContainer {
     position: absolute;
     top: 110%;
-    left: 30%;
+    left: 25%;
   }
 
   #search {
@@ -352,5 +356,45 @@ footer {
   .block__header {
     font-size: 1.6rem;
     margin-left: 2%;
+    text-align: center;
   }
+
+  div .mb-3 {
+    padding-left: 5%;
+  }
+
+  #search {
+    height: 350px;
+  }
+
+  #searchBar {
+    margin-top: 33%;
+    width: 100%;
+  }
+
+  .hotelBlock {
+    height: 750px;
+  }
+
+  button.btn-primary {
+    margin-left: 25%;
+  }
+
+  .hotelBlock {
+    height: 650px;
+    margin-left: 1%;
+  }
+
+  div.hotelBlock__elem:last-child {
+    padding-top: 10%;
+  }
+
+  #enquiryBtn {
+    padding-bottom: 5%;
+  }
+
+  .specificInfo {
+    padding-bottom: 10%;
+  }
+
 }

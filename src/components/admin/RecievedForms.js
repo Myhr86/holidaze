@@ -35,7 +35,7 @@ export default function RecievedForms() {
 
   return (
     <>
-    <h2 id="messagesH2">Messages</h2>
+    <h3 className="messagesH3">Messages</h3>
     <Row xs={1} sm={1} xxl={4} className="messages">
       {posts.map(media => {
         console.log({media})

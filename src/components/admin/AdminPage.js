@@ -33,8 +33,8 @@ useEffect(function () {
   return (
     <>
       <Heading content="Admin" />
-        <Link to={`/messages`}>Messages</Link>
-        <Link to={`/addhotel`}>Add a Hotel</Link>
+        <Link className="adminLinks" to={`/messages`}>Messages</Link>
+        <Link className="adminLinks" to={`/addhotel`}>Add a Hotel</Link>
         <Enquiries />
     </>
   );

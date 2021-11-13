@@ -14,8 +14,13 @@ const privData = ({username:"bruker", password:"Wjsnuy99."});
 
 export default function AddPost() {
   const [auth, setAuth] = useContext(AuthContext);
+  if (auth == undefined || null) {
+    console.log(auth)
+    sgnIn();
+    }
   console.log(auth);
   async function sgnIn() {
+    console.log("yuhu")
     try {
       const response2 = await axios.post(url, privData);
       console.log("response2", response2.data);
@@ -26,9 +31,6 @@ export default function AddPost() {
       console.log("error", error);
     } finally {
     }
-  }
-if (auth === null) {
-  sgnIn();
   }
 
 async function signIn() {
@@ -64,12 +66,14 @@ const schema = yup.object().shape({
 	async function onSubmit(data) {
 		setSubmitting(true);
 		setServerError(null);
-
+    console.log(auth);
 		data.status = "publish";
 
 		try {
+      console.log(auth)
       var newData = (data.name + "|" + data.email + "|" + data.subject + "|" + data.message);
       data = {content: newData, title: data.subject, status: "publish"};
+      console.log(data)
 			const response = await http.post("/wp/v2/myforms", data);
       window.location.reload();
 			console.log("response", response.data);

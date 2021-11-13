@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import useAxios from "../../../hooks/useAxios";
-import ListGroup from 'react-bootstrap/ListGroup'
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
@@ -36,7 +34,7 @@ export default function PostList() {
 
 	return (
     <>
-    <h2 id="messagesH2">Enquiries</h2>
+    <h3 className="messagesH3">Enquiries</h3>
     <Row xs={1} sm={1} xxl={4} className="messages">
       {posts.map(media => {
         console.log({media})
