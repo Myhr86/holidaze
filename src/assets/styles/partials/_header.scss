@@ -16,6 +16,11 @@ header {
   margin-top: 22px;
 }
 
+#desktopNav a:hover {
+  color: $orange;
+  transition: 1s;
+}
+
 #dropdown-basic-button {
   display: none;
 }
@@ -67,7 +72,8 @@ nav a {
   }
 
   img.logo {
-    margin-top: 20px;
+    width: 140px;
+    margin-top: 22px;
   }
 
   .dropdown {

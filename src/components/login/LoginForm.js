@@ -49,19 +49,20 @@ export default function LoginForm() {
   return (
     <>
       <Container fluid>
-        <Form onSubmit={handleSubmit(onSubmit)}>
+        <Form class="forms" onSubmit={handleSubmit(onSubmit)}>
           <Form.Group className="mb-3">
             {loginError && <FormError>{loginError}</FormError>}
             <fieldset disabled={submitting}>
-              <div>
-                <input name="username" placeholder="Username" ref={register} />
+              <div className="form-group">
+                <input className="form-control" name="username" placeholder="Username" ref={register} />
                 {errors.username && (
                   <FormError>{errors.username.message}</FormError>
                 )}
               </div>
 
-              <div>
+              <div className="form-group">
                 <input
+                  className="form-control"
                   name="password"
                   placeholder="Password"
                   ref={register}

@@ -4,7 +4,6 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import FormError from "../common/FormError";
-import FindUrl from "../FindUrl";
 import useAxios from "../../hooks/useAxios";
 
 const imageUrl = "https://skjaerseth.net/wpress/wp-content/uploads/2021/10/";
@@ -17,8 +16,6 @@ const schema = yup.object().shape({
 export default function AddPost() {
 	const [submitting, setSubmitting] = useState(false);
 	const [serverError, setServerError] = useState(null);
-
-	const [imgName, setImgName] = useState(null);
 
 	const history = useHistory();
 	const http = useAxios();
@@ -58,7 +55,6 @@ export default function AddPost() {
       try {
         const response = await http.get("wp/v2/pages");
         setHotels(response.data);
-        console.log(response.data)
       } catch (error) {
         console.log(error);
         setError(error.toString());
@@ -70,17 +66,6 @@ export default function AddPost() {
 		getHotels();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-
-
-	function getImg(event) {
-		let inputVal = event.target.value;
-		let newString = inputVal.slice(12);
-		console.log(imageUrl + newString);
-		setImgName(imageUrl + newString);
-		console.log(this);
-	}
-
 
 	return (
 		<>

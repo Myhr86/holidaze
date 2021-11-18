@@ -1,4 +1,4 @@
-import bgImg from "../../assets/img/bergen2small.jpg";
+import bgImg from "../../assets/img/bergen2small2.jpg";
 import HotelList from "./HotelList";
 import Footer from "../Footer";
 

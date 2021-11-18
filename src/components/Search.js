@@ -12,10 +12,6 @@ export default function Search() {
 
   var myHotels = [];
 
-  const searchF = document.querySelector(".searchField");
-  console.log(searchF);
-  //if (value.length === 0) {
-
   useEffect(function() {
     async function getMedia() {
       try {

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import useAxios from "../hotels/useAxios";
-import { Link } from "react-router-dom";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 

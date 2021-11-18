@@ -62,13 +62,14 @@ export default function ViewHotel() {
               <h3 className="specificInfo__heading" key={hotel.id}>{hotel.title.rendered}</h3>
               <hr className="specificInfo__hr"/>
               <Row sm={1}>
-              <Col sm={1} className="specificInfo__box">
+              <Col xxl={6} xl={6} lg={6} sm={6} className="specificInfo__box">
                 <p className="specificInfo__para">{hotelDesc}</p>
+                <Enquiry />
               </Col>
-              <Col sm={1} className="specificInfo__box2">
+              <Col xxl={6} xl={6} lg={6} sm={6} className="specificInfo__box2">
                 <img className="specificInfo__img" src={trimUrl}></img>
               </Col>
-              <Enquiry />
+
             </Row>
             </Col>
             <Footer />

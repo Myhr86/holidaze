@@ -12,6 +12,10 @@
   padding-left: 0;
 }
 
+.messages__textDiv:first-of-type {
+  margin-top: 0;
+}
+
 .messages__textDiv {
   background: $white;
   margin: 0 auto;
@@ -25,12 +29,10 @@
 .messagesH3 {
   background: $lightblue;
   color: $white;
-  width: 60%;
-  padding-left: 3%;
+  width: 100%;
   padding-top: 1%;
   padding-bottom: 1%;
   margin-bottom: 0;
-  margin-top: 3%;
   text-align: center;
 }
 
