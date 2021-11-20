@@ -14,7 +14,6 @@ export default function RecievedForms() {
     async function getMedia() {
       try {
         const response = await http.get("wp/v2/myforms");
-        console.log("response", response);
         setPosts(response.data);
       } catch (error) {
         console.log(error);

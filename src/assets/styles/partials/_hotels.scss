@@ -20,8 +20,8 @@
 
 .hotelLanding__header {
   color: $orange;
-  position: absolute;
-  left: 20%;
+  position: relative;
+  text-align: center;
   top: 30%;
   text-transform: uppercase;
 }
@@ -53,6 +53,7 @@
 
 .hotels__image {
   width: 100%;
+  height: 270px;
 }
 
 .hotels__header {
@@ -145,7 +146,6 @@
     left: 18%;
   }
 
-
   .specificInfo__para {
     margin-left: 10%;
   }
@@ -156,6 +156,25 @@
 
   .specificInfo__hr {
     margin-left: 5%;
+  }
+
+  .hotels__image {
+    height: 200px;
+  }
+
+  div.hotels__textDiv {
+    height: 400px;
+  }
+
+  h2.hotelLanding__header {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+  }
+
+  div.hotelLanding__elem {
+    width: 60%;
+    left: 20%;
   }
 }
 
@@ -170,7 +189,7 @@
     padding-bottom: 0;
   }
 
-  .hotelLanding__elem {
+  div.hotelLanding__elem {
     width: 90%;
     height: 50px;
     background: rgba(30, 30, 30, 0.9);
@@ -180,9 +199,11 @@
     border-radius: 8px;
   }
 
-  .hotelLanding__header {
+  h2.hotelLanding__header {
+    position: relative;
     top: 10%;
-    left: 5%;
+    display: block;
+    margin: 0 auto;
   }
 
   .hotelSpecific__box {
@@ -233,5 +254,13 @@
 
   #enquiryBtn {
     margin-left: 5%;
+  }
+
+  .hotels__image {
+    height: 280px;
+  }
+
+  div.hotels__textDiv {
+    height: 480px;
   }
 }

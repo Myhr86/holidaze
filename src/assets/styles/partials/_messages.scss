@@ -12,10 +12,6 @@
   padding-left: 0;
 }
 
-.messages__textDiv:first-of-type {
-  margin-top: 0;
-}
-
 .messages__textDiv {
   background: $white;
   margin: 0 auto;
@@ -75,7 +71,9 @@ div.messages.row {
 }
 
 @include media-breakpoint-down(sm) {
-
+  .messages__textDiv:first-of-type {
+    margin-top: 0;
+  }
 }
 
 @include media-breakpoint-only(xs) {

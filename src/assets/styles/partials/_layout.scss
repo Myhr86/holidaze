@@ -14,13 +14,25 @@ h1,h2,h3,h4,h5 {
   font-family: $headings-font;
 }
 
+h3 {
+  font-size: $h3-size;
+}
+
 input[type="file" i] {
   color: red;
 }
 
+body {
+  font-family: $body-font2;
+  font-weight: 200;
+  font-style: normal;
+}
+
 p {
   color: $white;
-  font-family: $body-font;
+  font-family: $body-font2;
+  font-weight: 200;
+  font-style: normal;
 }
 
 h2 {
@@ -189,7 +201,6 @@ div.react-card-flip {
   width: 100%;
 }
 
-
 .hikeBlock {
   background: $grey;
   margin-left: 0;
@@ -218,10 +229,6 @@ div.react-card-flip {
 
 .hikeBlock__image {
   width: 100%;
-}
-
-.hikeBlock__image:hover {
-
 }
 
 .hikeBlock__textBox {
@@ -291,17 +298,40 @@ div.react-card-flip {
 }
 
 .hotelLanding__image {
-  height: 500px;
+  height: 350px;
 }
 
-.contactLanding {
-    width: 100%;
-    position: relative;
-    padding-right: 0;
-    background: $darkblue;
+.loginLanding {
+  width: 100%;
+  position: relative;
+  padding-right: 0;
+  background: $darkblue;
 }
 
-.contactLanding h3 {
+.loginLanding__image {
+  width: 100%;
+  height: 350px;
+}
+
+h2.loginLanding__header {
+  color: #F7941D;
+  position: relative;
+  text-align: center;
+  top: 30%;
+  text-transform: uppercase;
+}
+
+.loginLanding__elem {
+  height: 100px;
+  width: 40%;
+  background: rgba(30, 30, 30, 0.9);
+  position: absolute;
+  top: 20.3%;
+  left: 30%;
+  border-radius: 8px;
+}
+
+.loginLanding h3 {
   color: $white;
   width: 100%;
   background: #0C518A;
@@ -310,13 +340,6 @@ div.react-card-flip {
   padding-bottom: 2%;
   text-align: center;
   text-transform: uppercase;
-}
-
-.contactField {
-  background: $grey;
-  padding: 40px;
-  border-radius: 8px;
-  margin-bottom: 10%;
 }
 
 footer {
@@ -368,6 +391,22 @@ footer {
   }
 }
 
+@include media-breakpoint-down(xxl) {
+  div.contactLanding__elem {
+    top: 19%;
+  }
+
+  .loginLanding__elem {
+    top: 17.2%;
+  }
+}
+
+@include media-breakpoint-down(xxl) {
+  div.contactLanding__elem {
+    top: 15%;
+  }
+}
+
 @include media-breakpoint-down(lg) {
   .block__elem {
     height: 150px;
@@ -415,8 +454,9 @@ footer {
     left: 25%;
   }
 
-  h2.hotelLanding__header {
-    left: 10%;
+  div.contactLanding__elem {
+    width: 50%;
+    left: 25%;
   }
 
   .hotels {
@@ -447,6 +487,18 @@ footer {
     color: white;
   }
 
+  div.contactLanding__elem {
+    width: 60%;
+    left: 20%;
+    top: 15.3%;
+  }
+
+  div.loginLanding__elem {
+    width: 60%;
+    left: 20%;
+    top: 17.5%;
+  }
+
 }
 
 @include media-breakpoint-down(md) {
@@ -455,20 +507,26 @@ footer {
     width: 90%;
     top: 10%;
     left: 5%;
-}
+  }
   .block__header {
     padding-left: 2%;
   }
 
+  div.contactLanding__elem {
+    width: 60%;
+    top: 19.5%;
+  }
+
+div.contactLanding__header {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  }
 }
 
 @include media-breakpoint-down(sm) {
   nav {
     display: block;
-  }
-
-  button.btn.btn-primary.loginBtn {
-    margin-top: 5%;
   }
 
   .searchContainer {
@@ -522,10 +580,6 @@ footer {
     top: 40%;
   }
 
-  h2.hotelLanding__header {
-    left: 5%;
-  }
-
   div.hikeBlock__elem {
     margin-bottom: 0;
   }
@@ -572,6 +626,51 @@ footer {
 
   .hotelLanding__image {
     height: 200px;
+  }
+
+  h2.loginLanding__header {
+    position: relative;
+    top: 9%;
+    display: block;
+    margin: 0 auto;
+    }
+
+  .loginLanding__image {
+    height: 200px;
+  }
+
+  div.loginLanding__elem {
+    width: 90%;
+    height: 50px;
+    background: rgba(30, 30, 30, 0.9);
+    position: absolute;
+    top: 12.6%;
+    left: 6%;
+    border-radius: 8px;
+  }
+
+  h2.loginLanding__header {
+    position: relative;
+    top: 9%;
+    display: block;
+    margin: 0 auto;
+    }
+
+  h2.contactLanding__header {
+    position: relative;
+    top: 9%;
+    display: block;
+    margin: 0 auto;
+    }
+
+  div.contactLanding__elem {
+    width: 90%;
+    height: 50px;
+    background: rgba(30, 30, 30, 0.9);
+    position: absolute;
+    top: 10%;
+    left: 6%;
+    border-radius: 8px;
   }
 }
 

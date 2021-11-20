@@ -6,8 +6,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import FormError from "../common/FormError";
 import useAxios from "../../hooks/useAxios";
 
-const imageUrl = "https://skjaerseth.net/wpress/wp-content/uploads/2021/10/";
-
 const schema = yup.object().shape({
 	title: yup.string().required("Title is required"),
 	slug: yup.string("_").required("_"),
@@ -35,8 +33,6 @@ export default function AddPost() {
 		try {
 			var newData = (data.name + "|" + data.email + "|" + data.subject + "|" + data.message);
       data = {content: newData, title: data.subject, status: "publish"};
-			const response = await http.post("/wp/v2/pages", data);
-			console.log("response", response.data);
 			history.push("/admin");
 		} catch (error) {
 			console.log("error", error);
@@ -46,9 +42,9 @@ export default function AddPost() {
 		}
 	}
 
-	const [hotels, setHotels] = useState([]);
-	const [loading, setLoading] = useState(true);
-	const [error, setError] = useState(null);
+	const [, setHotels] = useState([]);
+	const [, setLoading] = useState(true);
+	const [, setError] = useState(null);
 
 	useEffect(function() {
     async function getHotels() {

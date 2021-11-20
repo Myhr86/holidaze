@@ -22,16 +22,14 @@ export default function Enquiry() {
   	firstName: yup.string().required("Title is required"),
   });
 
-  const { register, handleSubmit, errors } = useForm({
+  const { register, handleSubmit } = useForm({
 		resolver: yupResolver(schema),
 	});
 
   async function sgnIn() {
     try {
       const response2 = await axios.post(url, privData);
-      console.log("response2", response2.data);
       var responseData = response2.data;
-      console.log(response2.data)
       setAuth(responseData);
     } catch (error) {
       console.log("error", error);
@@ -43,13 +41,13 @@ if (auth === null) {
   }
 
 const [submitting, setSubmitting] = useState(false);
-const [serverError, setServerError] = useState(null);
+const [, setServerError] = useState(null);
 const [thisHotel, setThisHotel] = useState(null);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [hotels, setHotels] = useState([]);
-	const [error, setError] = useState(null);
+	const [, setError] = useState(null);
 
   const http = useAxios();
   let { id } = useParams();
@@ -73,13 +71,13 @@ const [thisHotel, setThisHotel] = useState(null);
   }, []);
 
 if (thisHotel === null || undefined) {
-    {hotels.map(hotel => {
+    hotels.map(hotel => {
       if(id == hotel.id) {
         var thisHotel = hotel.title.rendered;
         console.log(thisHotel);
         setThisHotel(thisHotel);
       }
-    })}
+    })
 }
 
 
@@ -114,29 +112,29 @@ if (thisHotel === null || undefined) {
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Enquire us about your trip</Modal.Title>
+          <Modal.Title>Enquire us about {thisHotel}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
         <Form onSubmit={handleSubmit(onSubmit)}>
         <Row xl={2}>
           <Col xl={6}>
-          <Form.Group className="mb-3" controlId="firstName">
+          <Form.Group id="enqForm" className="mb-3" controlId="firstName">
             <Form.Label>First Name</Form.Label>
             <Form.Control type="text" name="firstName" placeholder="First Name" ref={register} />
           </Form.Group>
           </Col>
             <Col xl={6}>
-          <Form.Group className="mb-3" controlId="lastName">
+          <Form.Group id="enqForm" className="mb-3" controlId="lastName">
             <Form.Label>Last Name</Form.Label>
             <Form.Control name="lastName" type="text" placeholder="Last Name" ref={register} />
           </Form.Group>
           </Col>
           </Row>
-          <Form.Group className="mb-3" controlId="email">
+          <Form.Group id="enqForm" className="mb-3" controlId="email">
             <Form.Label>Email address</Form.Label>
             <Form.Control name="email" type="email" placeholder="Enter email" ref={register} />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="message">
+          <Form.Group id="enqForm" className="mb-3" controlId="message">
           <Form.Label>Leave us your message here</Form.Label>
           <Form.Control
             name="message"

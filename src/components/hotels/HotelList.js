@@ -17,15 +17,12 @@ export default function HotelList() {
     async function getMedia() {
       try {
         const response = await http.get("wp/v2/pages");
-        console.log("response", response);
-        {
           response.data.map(val => {
             if (val.slug.includes("_")) {
               listHotels.push(val);
               setPosts(listHotels);
             }
           });
-        }
       } catch (error) {
         console.log(error);
         setError(error.toString());
@@ -60,7 +57,7 @@ export default function HotelList() {
         return (
           <Col className="hotels__textDiv" key={media.id}>
             <Link to={`/details/${media.id}`}>
-              <img className="hotels__image" src={trimUrl} />
+              <img alt="Hotel Building from outside" className="hotels__image" src={trimUrl} />
             </Link>
             <h4 className="hotels__header">{media.title.rendered}</h4>
             <hr className="hotels__hr" />

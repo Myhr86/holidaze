@@ -5,8 +5,7 @@ import useAxios from "./hotels/useAxios";
 export default function Search() {
   const [allData, setAllData] = useState([]);
   const [filteredData, setFilteredData] = useState(allData);
-  const [error, setError] = useState(null);
-  const [searchField, setSearchField] = useState(false);
+  const [, setError] = useState(null);
 
   const http = useAxios();
 
@@ -16,8 +15,6 @@ export default function Search() {
     async function getMedia() {
       try {
         const response = await http.get("wp/v2/pages");
-        console.log("response", response.data);
-        {
           response.data.map(val => {
             if (val.slug.includes("_")) {
               myHotels.push(val);
@@ -25,7 +22,6 @@ export default function Search() {
               setFilteredData([]);
             }
           });
-        }
       } catch (error) {
         console.log(error);
         setError(error.toString("Something went wrong.."));

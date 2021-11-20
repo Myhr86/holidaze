@@ -37,7 +37,6 @@ export default function PostList() {
     <h3 className="messagesH3">Enquiries</h3>
     <Row xs={1} sm={1} xxl={4} className="messages">
       {posts.map(media => {
-        console.log({media})
         let para = media.content.rendered;
         let paraSplice = para.split("|");
 

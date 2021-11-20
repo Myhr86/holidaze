@@ -27,7 +27,7 @@ export default function LoginForm() {
     resolver: yupResolver(schema)
   });
 
-  const [auth, setAuth] = useContext(AuthContext);
+  const [, setAuth] = useContext(AuthContext);
 
   async function onSubmit(data) {
     setSubmitting(true);
@@ -49,18 +49,18 @@ export default function LoginForm() {
   return (
     <>
       <Container fluid>
-        <Form class="forms" onSubmit={handleSubmit(onSubmit)}>
+        <Form id="loginForm" className="forms" onSubmit={handleSubmit(onSubmit)}>
           <Form.Group className="mb-3">
             {loginError && <FormError>{loginError}</FormError>}
             <fieldset disabled={submitting}>
-              <div className="form-group">
+              <div id="loginInput" className="form-group">
                 <input className="form-control" name="username" placeholder="Username" ref={register} />
                 {errors.username && (
                   <FormError>{errors.username.message}</FormError>
                 )}
               </div>
 
-              <div className="form-group">
+              <div id="loginInput2" className="form-group">
                 <input
                   className="form-control"
                   name="password"

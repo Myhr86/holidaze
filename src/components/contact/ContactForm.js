@@ -1,5 +1,4 @@
 import { useState, useContext } from "react";
-import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Form from "react-bootstrap/Form";
 import * as yup from "yup";
@@ -9,6 +8,9 @@ import useAxios from "../../hooks/useAxios";
 import axios from "axios";
 import { BASE_URL, TOKEN_PATH } from "../../constants/api";
 import AuthContext from "../../context/AuthContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Col from 'react-bootstrap/Col'
+import Row from 'react-bootstrap/Row'
 
 const url = BASE_URL + TOKEN_PATH;
 const privData = ({username:"bruker", password:"Wjsnuy99."});
@@ -39,7 +41,6 @@ const schema = yup.object().shape({
 	const [submitting, setSubmitting] = useState(false);
 	const [serverError, setServerError] = useState(null);
 
-	const history = useHistory();
 	const http = useAxios();
 
 	const { register, handleSubmit, errors } = useForm({
@@ -53,7 +54,6 @@ const schema = yup.object().shape({
 		data.status = "publish";
 
 		try {
-      console.log(auth)
       var newData = (data.name + "|" + data.email + "|" + data.subject + "|" + data.message);
       data = {content: newData, title: data.subject, status: "publish"};
       console.log(data)
@@ -71,8 +71,13 @@ const schema = yup.object().shape({
 
 	return (
 		<>
-			<Form onSubmit={handleSubmit(onSubmit)}>
+    <Row className="formWrapper">
+      <Col className ="formWrapper__col" xxl={6} sm={12}>
+			<Form id="contactForm" className="contactForm" onSubmit={handleSubmit(onSubmit)}>
 				{serverError && <FormError>{serverError}</FormError>}
+        <div className="formHeader">
+          <h3 className="formHeader__heading">Contact Form</h3>
+        </div>
 				<fieldset className="contactField" disabled={submitting}>
 					<div className="form-group">
             <label htmlFor="name">Name</label>
@@ -98,6 +103,33 @@ const schema = yup.object().shape({
 					<button id="contactBtn" className="btn btn-primary">{submitting ? "Submitting..." : "Submit"}</button>
 				</fieldset>
 			</Form>
+      </Col>
+      <Col sm={12} xxl={3} className="contactInfo">
+        <h3 className="contactInfo__h3">More Ways of Contacting Us</h3>
+        <hr className="contactInfo__hr"></hr>
+        <h4 className="contactInfo__h4">Phone</h4>
+        <p className="contactInfo__p">Give us a call if you have questions about anything.</p>
+        <p className="contactInfo__p">+47 740 40 163</p>
+        <h4 className="contactInfo__h4">Email</h4>
+        <p className="contactInfo__p">holidaze@info.com</p>
+        <h4 className="contactInfo__h4">Adress</h4>
+        <p className="contactInfo__p">Bergen Street 47,</p>
+        <p className="contactInfo__p">7650 Bergen,</p>
+        <p className="contactInfo__p">Norway</p>
+        <h3 className="contactInfo__h3">We'd love to hear from you
+          on social media as well!</h3>
+        <hr className="contactInfo__hr"></hr>
+          <div className="contactInfo__icons">
+            <FontAwesomeIcon id="face" icon={["fab", "facebook"]} />
+            <FontAwesomeIcon id="insta" icon={["fab", "instagram"]} />
+            <FontAwesomeIcon id="twit" icon={["fab", "twitter"]} />
+          </div>
+      </Col>
+    </Row>
+    <Row className="mapWrapper">
+      <h3 className="mapWrapper__h3">You Can Find Us Here</h3>
+      <iframe className="mapWrapper__iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d957.4505092720449!2d5.315255869594085!3d60.39548216094849!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x463cfc1cb03b2cd3%3A0x9693fd5074636ec8!2sHolbergsallmenningen%205B%2C%205005%20Bergen!5e0!3m2!1sen!2sno!4v1637397305681!5m2!1sen!2sno" width="600" height="450" allowfullscreen="" loading="lazy"></iframe>
+    </Row>
 		</>
 	);
 }
