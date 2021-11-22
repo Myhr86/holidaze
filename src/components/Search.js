@@ -15,13 +15,13 @@ export default function Search() {
     async function getMedia() {
       try {
         const response = await http.get("wp/v2/pages");
-          response.data.map(val => {
-            if (val.slug.includes("_")) {
-              myHotels.push(val);
-              setAllData(myHotels);
-              setFilteredData([]);
-            }
-          });
+        response.data.map(val => {
+          if (val.slug.includes("_")) {
+            myHotels.push(val);
+            setAllData(myHotels);
+            setFilteredData([]);
+          }
+        });
       } catch (error) {
         console.log(error);
         setError(error.toString("Something went wrong.."));

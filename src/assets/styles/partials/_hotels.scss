@@ -38,6 +38,7 @@
 
 .hotels {
   background: $darkblue;
+  padding-bottom: 5%;
 }
 
 .hotels__textDiv {
@@ -95,7 +96,7 @@
 .hotelSpecific__box {
   position: absolute;
   top: 50%;
-  left: 33%;
+  left: 35%;
   padding: 20px;
   width: 500px;
   background: rgba(30, 30, 30, 0.9);

@@ -43,6 +43,15 @@ h3 {
   color: $orange;
 }
 
+.frame {
+  width: 75px;
+
+  top: 54%;
+  width: 150px;
+  left: 45.5%;
+  color: $orange;
+}
+
 #slugPrefix {
   display: none;
 }
@@ -348,6 +357,39 @@ footer {
   background: $lightblue;
 }
 
+// breadcrumb //
+ul.breadcrumb {
+  list-style: none;
+  background-color: $darkblue;
+  margin-bottom: 0;
+  padding-left: 0.5%;
+  padding-top: 0.2%;
+}
+
+ul.breadcrumb li {
+  display: inline;
+  font-size: 12px;
+  color: $white;
+  font-family: $body-font2;
+}
+
+ul.breadcrumb li+li:before {
+  padding: 8px;
+  color: $white;
+  content: ">\00a0";
+}
+
+ul.breadcrumb li a {
+  color: $orange;
+  text-decoration: none;
+}
+
+/* Add a color on mouse-over */
+ul.breadcrumb li a:hover {
+  color: #01447e;
+  text-decoration: underline;
+}
+
 @include media-breakpoint-down(xxl) {
   nav a{
     width: 50%;
@@ -533,6 +575,7 @@ div.contactLanding__header {
     position: absolute;
     top: -120%;
     left: 30%;
+    z-index: 1100;
   }
 
   .block__elem {
@@ -671,6 +714,10 @@ div.contactLanding__header {
     top: 10%;
     left: 6%;
     border-radius: 8px;
+  }
+
+  ul.breadcrumb {
+    padding-bottom: 5%;
   }
 }
 

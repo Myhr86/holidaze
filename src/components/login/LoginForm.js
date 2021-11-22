@@ -49,12 +49,21 @@ export default function LoginForm() {
   return (
     <>
       <Container fluid>
-        <Form id="loginForm" className="forms" onSubmit={handleSubmit(onSubmit)}>
+        <Form
+          id="loginForm"
+          className="forms"
+          onSubmit={handleSubmit(onSubmit)}
+        >
           <Form.Group className="mb-3">
             {loginError && <FormError>{loginError}</FormError>}
             <fieldset disabled={submitting}>
               <div id="loginInput" className="form-group">
-                <input className="form-control" name="username" placeholder="Username" ref={register} />
+                <input
+                  className="form-control"
+                  name="username"
+                  placeholder="Username"
+                  ref={register}
+                />
                 {errors.username && (
                   <FormError>{errors.username.message}</FormError>
                 )}
@@ -72,7 +81,7 @@ export default function LoginForm() {
                   <FormError>{errors.password.message}</FormError>
                 )}
               </div>
-              <button className="btn btn-primary loginBtn">
+              <button id="loginButton" className="btn btn-primary loginBtn">
                 {submitting ? "Loggin in..." : "Login"}
               </button>
             </fieldset>

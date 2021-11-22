@@ -2,6 +2,14 @@ form div.mb-3 {
   padding-bottom: 20%;
 }
 
+div#loginInput {
+  width: 50%;
+}
+
+div#loginInput2 {
+  width: 50%;
+}
+
 #enqForm {
   padding-bottom: 0;
 }
@@ -9,6 +17,18 @@ form div.mb-3 {
 #contactBtn {
   margin-left: 0;
   margin-top: 2%;
+}
+
+h2#loginH2 {
+  color: #FDFDFD;
+  font-size: $h2-size;
+  width: 100%;
+  background: #0C518A;
+  margin-bottom: 0;
+  padding-top: 2.5%;
+  padding-bottom: 2%;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 h2#contactH3 {
@@ -21,6 +41,10 @@ h2#contactH3 {
   padding-bottom: 2%;
   text-align: center;
   text-transform: uppercase;
+}
+
+#contactH2Mob {
+  display: none;
 }
 
 button.loginBtn {
@@ -40,6 +64,7 @@ div.row form {
 
 #loginForm {
   margin-left: 5%;
+  height: auto;
 }
 
 .formWrapper {
@@ -204,24 +229,35 @@ hr.contactInfo__hr:last-of-type {
   padding-bottom: 5%;
 }
 
-#loginInput {
+div#loginInput {
   margin: 0 auto;
   margin-bottom: 0.5%;
   width: 50%;
 }
 
-#loginInput2 {
+div#loginInput2 {
   margin: 0 auto;
   margin-bottom: 2%;
   width: 50%;
 }
 
-#loginBtn {
+#loginButton {
   margin: 0 auto;
+  margin-left: 25%;
 }
 
 #mb-3 {
   margin: 0 auto;
+}
+
+@include media-breakpoint-down(xl) {
+
+
+  .contactInfo {
+    margin-left: 3%;
+    width: 30%;
+    height: 620px;
+  }
 }
 
 @include media-breakpoint-down(lg) {
@@ -230,17 +266,49 @@ hr.contactInfo__hr:last-of-type {
     margin: 0 auto;
     --bs-gutter-x: 0;
   }
+
+  div.contactInfo {
+    margin-left: 3%;
+    width: 35%;
+    height: 620px;
+  }
+
+  .contactField {
+    height: 520px;
+  }
 }
 
 @include media-breakpoint-down(md) {
   div.row form {
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
     --bs-gutter-x: 0;
+  }
+
+  #contactForm {
+    width: 100%;
+  }
+
+  div.contactInfo {
+    width: 100%;
+    margin-left: 0;
+    height: auto;
+  }
+
+  div.contactForm {
+    width: 100%;
   }
 }
 
 @include media-breakpoint-down(sm) {
+  h2#contactH3 {
+    display: none;
+  }
+
+  #contactH2Mob {
+    display: inline-block;
+  }
+
 #loginInput {
   margin: 0 auto;
   margin-bottom: 0.5%;
@@ -255,6 +323,10 @@ hr.contactInfo__hr:last-of-type {
 
 button.loginBtn {
   margin-left: 5%;
+}
+
+#loginForm {
+  height: 400px;
 }
 
 div.contactInfo {
@@ -319,6 +391,18 @@ hr.contactInfo__hr:last-of-type {
   padding-top: 1.5%;
 }
 
+div#loginInput {
+  margin: 0 auto;
+  margin-bottom: 0.5%;
+  width: 90%;
+}
+
+div#loginInput2 {
+  margin: 0 auto;
+  margin-bottom: 1%;
+  width: 90%;
+}
+
 footer {
   margin-top: 0;
 }
@@ -349,19 +433,19 @@ div.row form {
   --bs-gutter-x: 0;
 }
 
-#loginInput {
+div#loginInput {
   margin: 0 auto;
   margin-bottom: 0.5%;
   width: 90%;
 }
 
-#loginInput2 {
+div#loginInput2 {
   margin: 0 auto;
   margin-bottom: 1%;
   width: 90%;
 }
 
-button.btn.btn-primary.loginBtn {
+#loginButton {
   margin-top: 1%;
   margin-left: 5%;
 }

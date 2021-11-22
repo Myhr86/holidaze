@@ -5,9 +5,9 @@ function Heading({ size = "1", content }) {
 
   return (
     <>
-    <VariableHeading>{content}</VariableHeading>
+      <VariableHeading>{content}</VariableHeading>
     </>
-  )
+  );
 }
 
 Heading.propTypes = {

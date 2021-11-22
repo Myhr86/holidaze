@@ -4,12 +4,18 @@
 }
 
 .adminLinks {
-  width: 30%;
+  margin-left: 1%;
+  width: 6%;
   padding-right: 0;
+  text-decoration: none;
 }
 
 .adminLinks:last-of-type {
   padding-left: 0;
+}
+
+.adminHeading {
+  margin-left: 5%;
 }
 
 .messages__textDiv {

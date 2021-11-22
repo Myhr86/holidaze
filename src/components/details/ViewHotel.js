@@ -3,14 +3,15 @@ import { useParams } from "react-router-dom";
 import useAxios from "../hotels/useAxios";
 import Footer from "../Footer";
 import FindUrl from "../FindUrl";
-import Col from 'react-bootstrap/Col'
-import Row from 'react-bootstrap/Row'
+import { Link } from "react-router-dom";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 import Enquiry from "../Enquiry";
 
 export default function ViewHotel() {
   const [hotels, setHotels] = useState([]);
-	const [loading, setLoading] = useState(true);
-	const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   const http = useAxios();
 
@@ -40,41 +41,72 @@ export default function ViewHotel() {
   return (
     <>
       {hotels.map(hotel => {
-        let para = hotel.excerpt.rendered
-        let hotelDesc = para.slice(3, -5)
-        let imgUrl = FindUrl(hotel.content.rendered)
+        let para = hotel.excerpt.rendered;
+        let hotelDesc = para.slice(3, -5);
+        let imgUrl = FindUrl(hotel.content.rendered);
         if (imgUrl !== null) {
-          var newUrl = imgUrl[0]
-          var trimUrl = newUrl.slice(0, -1)
+          var newUrl = imgUrl[0];
+          var trimUrl = newUrl.slice(0, -1);
         }
 
         if (id == hotel.id) {
           return (
             <>
-            <Col key={hotel.id} xl={1} className="hotelSpecific">
-              <div className="hotelSpecific__box">
-                <h1 className="hotelSpecific__header">{hotel.title.rendered}</h1>
-              </div>
-              <img className="hotelSpecific__image" alt="Hotel room or outside view" key={trimUrl} src={trimUrl}></img>
-            </Col>
-            <Col key={hotel.title.rendered} className="specificInfo">
-              <h3 className="specificInfo__heading" key={hotel.id}>{hotel.title.rendered}</h3>
-              <hr className="specificInfo__hr"/>
-              <Row sm={1}>
-              <Col key={hotelDesc} xxl={6} xl={6} lg={6} sm={6} className="specificInfo__box">
-                <p className="specificInfo__para">{hotelDesc}</p>
-                <Enquiry />
+              <Col key={hotel.id} xl={1} className="hotelSpecific">
+                <div className="hotelSpecific__box">
+                  <h1 className="hotelSpecific__header">
+                    {hotel.title.rendered}
+                  </h1>
+                </div>
+                <img
+                  className="hotelSpecific__image"
+                  alt="Hotel room or outside view"
+                  key={trimUrl}
+                  src={trimUrl}
+                />
               </Col>
-              <Col key={trimUrl} xxl={6} xl={6} lg={6} sm={6} className="specificInfo__box2">
-                <img alt="Hotel building" className="specificInfo__img" src={trimUrl}></img>
+              <ul class="breadcrumb">
+                <li><Link to={`/`}>Home</Link></li>
+                <li><Link to={`/hotels/`}>Hotels</Link></li>
+                <li>{hotel.title.rendered}</li>
+              </ul>
+              <Col key={hotel.title.rendered} className="specificInfo">
+                <h3 className="specificInfo__heading" key={hotel.id}>
+                  {hotel.title.rendered}
+                </h3>
+                <hr className="specificInfo__hr" />
+                <Row sm={1}>
+                  <Col
+                    key={hotelDesc}
+                    xxl={6}
+                    xl={6}
+                    lg={6}
+                    sm={6}
+                    className="specificInfo__box"
+                  >
+                    <p className="specificInfo__para">{hotelDesc}</p>
+                    <Enquiry />
+                  </Col>
+                  <Col
+                    key={trimUrl}
+                    xxl={6}
+                    xl={6}
+                    lg={6}
+                    sm={6}
+                    className="specificInfo__box2"
+                  >
+                    <img
+                      alt="Hotel building"
+                      className="specificInfo__img"
+                      src={trimUrl}
+                    />
+                  </Col>
+                </Row>
               </Col>
-
-            </Row>
-            </Col>
-            <Footer />
+              <Footer />
             </>
           );
-          }
+        }
       })}
     </>
   );
