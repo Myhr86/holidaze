@@ -95,12 +95,6 @@ nav a {
     background: $darkblue;
   }
 
-  img.hotelBlock__image {
-    width: 300px;
-    height: 300px;
-    right: 8%;
-  }
-
   .hotels {
     --bs-gutter-x: 0;
   }
@@ -118,19 +112,5 @@ nav a {
   div.hikeBlock__elem:first-child {
     margin-right: 0;
     margin-left: 1%;
-  }
-
-  div.hotelBlock__elem {
-    margin-right: 0;
-    margin-left: 0;
-  }
-
-  div.hotelBlock__elem:first-child {
-    height: 350px;
-    margin-top: 5%;
-  }
-
-  div.hotelBlock__elem:last-child {
-    margin-top: 0;
   }
 }

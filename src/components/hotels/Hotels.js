@@ -1,5 +1,4 @@
 import bgImg from "../../assets/img/bergen2small2.jpg";
-import frame from "../../assets/img/frame.png";
 import { Link } from "react-router-dom";
 import HotelList from "./HotelList";
 import Footer from "../Footer";

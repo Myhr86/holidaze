@@ -121,7 +121,7 @@ console.log(thisHotel)
           <Form onSubmit={handleSubmit(onSubmit)}>
             <Row xl={2}>
               <Col xl={6}>
-                <Form.Group id="enqForm" className="mb-3" controlId="firstName">
+                <Form.Group className="mb-3 enqForm" controlId="firstName">
                   <Form.Label>First Name</Form.Label>
                   <Form.Control
                     type="text"
@@ -132,7 +132,7 @@ console.log(thisHotel)
                 </Form.Group>
               </Col>
               <Col xl={6}>
-                <Form.Group id="enqForm" className="mb-3" controlId="lastName">
+                <Form.Group className="mb-3 enqForm" controlId="lastName">
                   <Form.Label>Last Name</Form.Label>
                   <Form.Control
                     name="lastName"
@@ -143,7 +143,7 @@ console.log(thisHotel)
                 </Form.Group>
               </Col>
             </Row>
-            <Form.Group id="enqForm" className="mb-3" controlId="email">
+            <Form.Group className="mb-3 enqForm" controlId="email">
               <Form.Label>Email address</Form.Label>
               <Form.Control
                 name="email"
@@ -152,8 +152,12 @@ console.log(thisHotel)
                 ref={register}
               />
             </Form.Group>
-            <Form.Group id="enqForm" className="mb-3" controlId="message">
-              <Form.Label>Leave us your message here</Form.Label>
+            <Form.Group className="mb-3 enqForm enqForm2" controlId="message">
+              <Form.Label>Your Enquriy</Form.Label>
+              <p className="enquiryP">Ask us anything you would like to know about this accommodation.
+                          It would be great if you could include how many people are in your party,
+                          if you want with or without breakfast, double or single beds and number of rooms.
+                          You will hear back from us shortly with a selection of offers matching your needs.</p>
               <Form.Control
                 name="message"
                 as="textarea"

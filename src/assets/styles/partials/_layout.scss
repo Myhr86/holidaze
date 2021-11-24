@@ -43,15 +43,6 @@ h3 {
   color: $orange;
 }
 
-.frame {
-  width: 75px;
-
-  top: 54%;
-  width: 150px;
-  left: 45.5%;
-  color: $orange;
-}
-
 #slugPrefix {
   display: none;
 }
@@ -62,6 +53,14 @@ button.btn-primary{
   color: $white;
   background: $orange;
   border: none;
+}
+
+#enquiryBtn:hover{
+  background: #BF7417;
+}
+
+button.btn-primary:hover {
+  background: #BF7417;
 }
 
 button:hover {
@@ -93,33 +92,48 @@ div.res {
 }
 
 .icons {
-  width: 30%;
-  height: 100%;
+  width: 70%;
   position: relative;
 }
 
 .fa-facebook {
-  position: absolute;
-  top: 36%;
-  left: 5%;
+  top: 15px;
+  margin-top: 2%;
+  margin-left: 150px;
   font-size: 32px;
   color: white;
 }
 
 .fa-twitter {
-  position: absolute;
-  top: 36%;
-  left: 41%;
+  top: 15px;
+  margin-left: 5%;
   font-size: 32px;
   color: white;
 }
 
 .fa-instagram {
-  position: absolute;
-  top: 36%;
-  left: 23%;
+  top: 15px;
+  margin-left: 5%;
   font-size: 32px;
   color: white;
+}
+
+.fa-facebook:hover {
+  cursor: pointer;
+  color: $orange;
+  transition: 0.5s;
+}
+
+.fa-twitter:hover {
+  cursor: pointer;
+  color: $orange;
+  transition: 0.5s;
+}
+
+.fa-instagram:hover {
+  cursor: pointer;
+  color: $orange;
+  transition: 0.5s;
 }
 
 .fa-hiking {
@@ -298,8 +312,21 @@ div.react-card-flip {
   width: 400px;
   height: 400px;
   border-radius: 50%;
-  position: absolute;
-  right: 10%;
+  margin-left: 25%;
+}
+
+div.hotelBlock__elem {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+div.hotelBlock__elem:first-child {
+  height: 350px;
+  margin-top: 0;
+}
+
+div.hotelBlock__elem:last-child {
+  margin-top: 0;
 }
 
 .hotelBlock__para {
@@ -351,10 +378,67 @@ h2.loginLanding__header {
   text-transform: uppercase;
 }
 
+/* Footer */
 footer {
   width: 100%;
   height: 130px;
+  padding: 10px;
   background: $lightblue;
+}
+
+footer span {
+  color: $orange;
+}
+
+.footer__row {
+  flex-direction: row-reverse;
+}
+
+.footer__elem {
+
+}
+
+hr.footer__hr {
+  width: 40%;
+  color: $orange;
+  opacity: 1;
+  height: 1px;
+  margin-top: 0;
+  margin-bottom: 3%;
+}
+
+.footer__ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.footer__li a{
+  color: white;
+  text-decoration: none;
+  padding-left: 2%;
+  font-size: 12px;
+}
+
+.footer__li a:hover {
+  color: $orange;
+}
+
+.footer__h4 {
+  color: $white;
+  margin-bottom: 0;
+  padding-top: 0;
+}
+
+.footerP {
+  margin-left: 1%;
+}
+
+i.fa.fa-tripadvisor {
+  width: 100px;
+  height: 50px;
+  color: black;
+  font-size: 50px;
+  display: block;
 }
 
 // breadcrumb //
@@ -423,8 +507,6 @@ ul.breadcrumb li a:hover {
   }
 
   .hotelBlock__image {
-    width: 400px;
-    height: 400px;
     margin-top: 5%;
   }
 
@@ -441,12 +523,24 @@ ul.breadcrumb li a:hover {
   .loginLanding__elem {
     top: 17.2%;
   }
+
+  .hotelBlock__elem:last-child {
+    padding-top: 10%;
+  }
+
+  .hotelBlock__para {
+    width: 90%;
+  }
 }
 
 @include media-breakpoint-down(xxl) {
   div.contactLanding__elem {
     top: 15%;
   }
+}
+
+@include media-breakpoint-down(xl) {
+
 }
 
 @include media-breakpoint-down(lg) {
@@ -464,7 +558,7 @@ ul.breadcrumb li a:hover {
   }
 
   .hotelBlock {
-    height: 370px;
+    height: 750px;
   }
 
   .hikeBlock__elem {
@@ -479,11 +573,7 @@ ul.breadcrumb li a:hover {
   .hotelBlock__elem:last-child {
     padding-top: 0;
     padding-left: 5%;
-  }
-
-  .hotelBlock__image {
-    height: 300px;
-    width: 300px;
+    text-align: center;
   }
 
   div.hotels__textDiv {
@@ -506,27 +596,7 @@ ul.breadcrumb li a:hover {
   }
 
   .fa-facebook {
-    position: absolute;
-    top: 38%;
-    left: 8%;
-    font-size: 32px;
-    color: white;
-  }
-
-  .fa-twitter {
-    position: absolute;
-    top: 38%;
-    left: 49%;
-    font-size: 32px;
-    color: white;
-  }
-
-  .fa-instagram {
-    position: absolute;
-    top: 38%;
-    left: 29%;
-    font-size: 32px;
-    color: white;
+    margin-left: 50%;
   }
 
   div.contactLanding__elem {
@@ -559,10 +629,73 @@ ul.breadcrumb li a:hover {
     top: 19.5%;
   }
 
-div.contactLanding__header {
-  position: relative;
-  display: block;
-  margin: 0 auto;
+  div.contactLanding__header {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    }
+
+  button#enquiryBtn {
+    margin-top: 10%;
+    margin-left: 10%;
+  }
+
+  .specificInfo {
+    padding-bottom: 5%;
+  }
+
+  .hotelBlock {
+    height: 750px;
+  }
+
+  .hotelBlock__para {
+    width: auto;
+  }
+
+  .hotelBlock__elem {
+    display: flex;
+    padding: 100px;
+    margin-bottom: 15%;
+  }
+
+  .hotelBlock__elem:last-child {
+    display: inline-block;
+    text-align: center;
+    margin-left: 0;
+  }
+
+  .hotelBlock__image {
+    width: 350px;
+    height: 400px;
+    flex: 2 2;
+    margin-left: 0;
+  }
+
+  .footerP {
+    margin-top: 20px;
+    margin-left: 10%;
+  }
+
+  .footer__row {
+    padding-top: 3%;
+    padding-left: 40%;
+  }
+
+  .icons {
+    width: 100%;
+  }
+
+  .fa-facebook {
+    margin-left: 30%;
+    margin-top: 20px;
+  }
+
+  .footer__h4 {
+    padding-top: 10px;
+  }
+
+  footer {
+    height: 220px;
   }
 }
 
@@ -612,6 +745,10 @@ div.contactLanding__header {
     height: 650px;
   }
 
+  .hotelBlock__elem:last-child {
+    padding: 0;
+  }
+
   div.hotels__textDiv {
     width: 300px;
     height: 400px;
@@ -625,10 +762,12 @@ div.contactLanding__header {
 
   div.hikeBlock__elem {
     margin-bottom: 0;
+    padding-top: 0;
   }
 
   div.hikeBlock__elem:first-child {
     margin-left: 0;
+    margin-top: 0;
   }
 
   div.hikeBlock__elem:last-child {
@@ -640,29 +779,17 @@ div.contactLanding__header {
   }
 
   .hotelBlock__image {
-    left: 11%;
+    position: relative;
+    height: 300px;
+    width: 300px;
+    left: auto;
+    margin-left: 25%;
+    top: 0;
   }
 
   .fa-facebook {
-    position: absolute;
-    top: 38%;
-    left: 2%;
-    font-size: 32px;
-    color: white;
-  }
-
-  .fa-twitter {
-    position: absolute;
-    top: 38%;
-    left: 43%;
-    font-size: 32px;
-    color: white;
-  }
-
-  .fa-instagram {
-    position: absolute;
-    top: 38%;
-    left: 23%;
+    margin-top: 10%;
+    margin-left: 2%;
     font-size: 32px;
     color: white;
   }
@@ -716,8 +843,20 @@ div.contactLanding__header {
     border-radius: 8px;
   }
 
+  button.btn-primary {
+    margin-left: 0;
+  }
+
   ul.breadcrumb {
     padding-bottom: 5%;
+  }
+
+  .footer__h4 {
+    padding-top: 15px;
+  }
+
+  footer {
+    height: 220px;
   }
 }
 
@@ -770,17 +909,35 @@ div.contactLanding__header {
     width: 100%;
   }
 
+  div.contactInfo {
+    padding-bottom: 15%;
+  }
+
+  h3.contactInfo__h3 {
+    margin-top: 10px;
+  }
+
+  h3.contactInfo__h3:last-of-type {
+    margin-top: 40px;
+  }
+
   .hotelBlock {
     height: 750px;
   }
 
   button.btn-primary {
-    margin-left: 27%;
+    margin-left: 0;
   }
 
   .hotelBlock {
     height: 650px;
     margin-left: 1%;
+  }
+
+  .hotelBlock__elem:first-child {
+    display: flex;
+    padding: 20px;
+    margin-bottom: 10%;
   }
 
   .hotelBlock__elem:last-child {
@@ -789,7 +946,11 @@ div.contactLanding__header {
   }
 
   .hotelBlock__image {
-    left: 10%;
+    flex: 1 auto;
+    align-self: center;
+    width: 70%;
+    height: 100%;
+    margin-left: 0;
   }
 
   p.hotelBlock__para {
@@ -803,7 +964,24 @@ div.contactLanding__header {
     padding-bottom: 5%;
   }
 
+  a.adminLinks {
+    width: 50%;
+  }
+
   .specificInfo {
     padding-bottom: 10%;
+  }
+
+  .icons {
+    margin-left: 0;
+  }
+
+  .fa-facebook {
+    margin-left: 13%;
+    margin-top: 5%;
+  }
+
+  .footer__h4:last-of-type {
+    padding-top: 10px;
   }
 }

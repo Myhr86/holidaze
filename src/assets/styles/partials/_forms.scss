@@ -10,8 +10,16 @@ div#loginInput2 {
   width: 50%;
 }
 
-#enqForm {
+div.mb-3.enqForm {
   padding-bottom: 0;
+}
+
+div.mb-3.enqForm {
+  color: $orange;
+}
+
+.enquiryP {
+  color: $black;
 }
 
 #contactBtn {
@@ -112,10 +120,6 @@ h2.contactLanding__header {
   text-transform: uppercase;
 }
 
-.contactForm {
-
-}
-
 .contactInfo {
   background: $darkblue;
   width: 28%;
@@ -160,16 +164,19 @@ p.contactInfo__p:first-of-type {
 #face {
   position: relative;
   color: $white;
+  margin-left: 12%;
 }
 
 #insta {
   position: relative;
   color: $white;
+  margin-left: 9%;
 }
 
 #twit {
   position: relative;
   color: $white;
+  margin-left: 9%;
 }
 
 #face:hover, #twit:hover, #insta:hover {
@@ -188,7 +195,7 @@ hr.contactInfo__hr {
 }
 
 hr.contactInfo__hr:last-of-type {
-  margin-bottom: 7%;
+  margin-bottom: 2%;
 }
 
 .contactField {
