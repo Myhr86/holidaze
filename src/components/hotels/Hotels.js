@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import HotelList from "./HotelList";
 import Footer from "../Footer";
 
-export default function HomePage() {
+export default function Hotels() {
   return (
     <>
       <div className="hotelLanding">
@@ -13,7 +13,7 @@ export default function HomePage() {
           alt="Bergen docks taken from sea"
         />
       </div>
-      <ul class="breadcrumb">
+      <ul className="breadcrumb">
         <li><Link to={`/`}>Home</Link></li>
         <li>Hotels</li>
       </ul>

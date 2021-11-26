@@ -12,7 +12,7 @@ export default function LoginPage() {
           src={bgImg}
           alt="Bergen docks taken from sea"
         />
-        <ul class="breadcrumb">
+        <ul className="breadcrumb">
           <li><Link to={`/`}>Home</Link></li>
           <li>Login Form</li>
         </ul>

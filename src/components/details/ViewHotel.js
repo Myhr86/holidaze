@@ -65,7 +65,7 @@ export default function ViewHotel() {
                   src={trimUrl}
                 />
               </Col>
-              <ul class="breadcrumb">
+              <ul className="breadcrumb">
                 <li><Link to={`/`}>Home</Link></li>
                 <li><Link to={`/hotels/`}>Hotels</Link></li>
                 <li>{hotel.title.rendered}</li>

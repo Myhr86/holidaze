@@ -14,6 +14,7 @@ header {
 
 #desktopNav {
   margin-top: 22px;
+  margin-left: 40%;
 }
 
 #desktopNav a:hover {
@@ -54,6 +55,18 @@ nav a {
     grid-template-columns: 30% 70%;
     grid-column-gap: 35%;
   }
+
+  #desktopNav {
+    margin-left: 15% ;
+  }
+
+  nav a {
+    margin-left: 2%;
+  }
+}
+
+@include media-breakpoint-down(xl) {
+
 }
 
 @include media-breakpoint-down(lg) {
@@ -61,6 +74,22 @@ nav a {
     display: grid;
     grid-template-columns: 30% 70%;
     grid-column-gap: 25%;
+  }
+
+  #desktopNav {
+    margin-left: 20% ;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  #desktopNav {
+    margin-left: 5% ;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  #desktopNav {
+    margin-left: 10% ;
   }
 }
 
@@ -78,6 +107,7 @@ nav a {
 
   .dropdown {
     margin-top: 22px;
+    margin-left: 45%;
   }
 
   #desktopNav {

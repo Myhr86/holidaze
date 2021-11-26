@@ -6,8 +6,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import FormError from "../common/FormError";
 import useAxios from "../../hooks/useAxios";
 
-const imageUrl = "https://skjaerseth.net/wpress/wp-content/uploads/2021/10/";
-
 const schema = yup.object().shape({
   title: yup.string().required("Title is required"),
   slug: yup.string("_").required("_")
@@ -16,8 +14,8 @@ const schema = yup.object().shape({
 export default function AddPost() {
   const [submitting, setSubmitting] = useState(false);
   const [serverError, setServerError] = useState(null);
-  const [selectedFile, setSelectedFile] = useState();
-  const [isFilePicked, setIsFilePicked] = useState(false);
+  const [, setSelectedFile] = useState();
+  const [, setIsFilePicked] = useState(false);
 
   const history = useHistory();
   const http = useAxios();

@@ -164,6 +164,7 @@ export default function AddPost() {
           height="450"
           allowFullScreen=""
           loading="lazy"
+          title="holidazeMap"
         />
       </Row>
     </>

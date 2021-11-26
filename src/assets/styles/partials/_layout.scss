@@ -91,6 +91,11 @@ div.res {
   color: white;
 }
 
+div.res a{
+  text-decoration: none;
+  color: $orange;
+}
+
 .icons {
   width: 70%;
   position: relative;
@@ -511,7 +516,7 @@ ul.breadcrumb li a:hover {
   }
 
   footer {
-    margin-top: 200px;
+    margin-top: 5%;
   }
 }
 
@@ -558,7 +563,7 @@ ul.breadcrumb li a:hover {
   }
 
   .hotelBlock {
-    height: 750px;
+    height: 700px;
   }
 
   .hikeBlock__elem {
@@ -571,7 +576,7 @@ ul.breadcrumb li a:hover {
   }
 
   .hotelBlock__elem:last-child {
-    padding-top: 0;
+    padding-top: 5%;
     padding-left: 5%;
     text-align: center;
   }
@@ -609,6 +614,10 @@ ul.breadcrumb li a:hover {
     width: 60%;
     left: 20%;
     top: 17.5%;
+  }
+
+  iframe.mapWrapper__iframe {
+    width: 80%;
   }
 
 }
@@ -845,6 +854,10 @@ ul.breadcrumb li a:hover {
 
   button.btn-primary {
     margin-left: 0;
+  }
+
+  iframe.mapWrapper__iframe {
+    width: 100%;
   }
 
   ul.breadcrumb {

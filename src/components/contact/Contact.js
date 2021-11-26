@@ -13,11 +13,11 @@ export default function Contact() {
           alt="Bergen docks taken from sea"
         />
 
-        <ul class="breadcrumb">
+        <ul className="breadcrumb">
           <li><Link to={`/`}>Home</Link></li>
           <li>Contact Form</li>
         </ul>
-        <h2 id="contactH3">CONTACT</h2>
+        <h2 id="contactH2">CONTACT</h2>
         <h2 id="contactH2Mob">CONTACT FORM</h2>
         <ContactForm />
         <Footer />

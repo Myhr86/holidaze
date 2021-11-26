@@ -35,7 +35,7 @@ export default function RecievedForms() {
   return (
     <>
       <h3 className="messagesH3">Messages</h3>
-        <ul class="breadcrumb">
+        <ul className="breadcrumb">
           <li><Link to={`/admin/`}>Admin</Link></li>
           <li>Messages</li>
         </ul>
