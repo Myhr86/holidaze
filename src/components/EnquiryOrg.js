@@ -13,17 +13,18 @@ import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { BASE_URL, TOKEN_PATH } from "../constants/api";
-
 const url = BASE_URL + TOKEN_PATH;
 const privData = { username: "bruker", password: "Wjsnuy99." };
 
 export default function Enquiry() {
-  const [thisHotel, setThisHotel] = useState(null);
   const [auth, setAuth] = useContext(AuthContext);
+  const schema = yup.object().shape({
+    firstName: yup.string().required("Title is required")
+  });
 
-  if (auth == undefined || null) {
-    sgnIn();
-  }
+  const { register, handleSubmit } = useForm({
+    resolver: yupResolver(schema)
+  });
 
   async function sgnIn() {
     try {
@@ -35,17 +36,13 @@ export default function Enquiry() {
     } finally {
     }
   }
-
-  const schema = yup.object().shape({
-    firstName: yup.string().required("Title is required")
-  });
-
-  const { register, handleSubmit } = useForm({
-    resolver: yupResolver(schema)
-  });
+  if (auth === null) {
+    sgnIn();
+  }
 
   const [submitting, setSubmitting] = useState(false);
   const [, setServerError] = useState(null);
+  const [thisHotel, setThisHotel] = useState(null);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -60,6 +57,7 @@ export default function Enquiry() {
       try {
         const response = await http.get("wp/v2/pages/");
         setHotels(response.data);
+        console.log(response);
       } catch (error) {
         console.log(error);
         setError(error.toString());
@@ -71,10 +69,11 @@ export default function Enquiry() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  if (thisHotel == null || undefined) {
+  if (thisHotel === null || undefined) {
     hotels.map(hotel => {
       if (id == hotel.id) {
         var thisHotel = hotel.title.rendered;
+        console.log(thisHotel);
         setThisHotel(thisHotel);
       }
     });
@@ -92,14 +91,13 @@ export default function Enquiry() {
       var newData =
         data.firstName +
         "|" +
-        data.lastName +
+        data.firstName +
         "|" +
         data.email +
         "|" +
         data.message;
       data = { content: newData, title: thisHotel, status: "publish" };
       const response = await http.post("wp/v2/enquiries", data);
-      window.location.reload();
       console.log("response", response.data);
     } catch (error) {
       console.log("error", error);
@@ -108,7 +106,7 @@ export default function Enquiry() {
       setSubmitting(false);
     }
   }
-
+console.log(thisHotel)
   return (
     <>
       <Button id="enquiryBtn" variant="primary" onClick={handleShow}>

@@ -113,14 +113,14 @@ export default function HomePage() {
         </Col>
       </Row>
       <Row xs={1} sm={1} lg={2} xl={2} xxl={2} className="hotelBlock">
-        <Col xs={12} lg={6} xl={12} xxl={6} className="hotelBlock__elem">
+        <Col xs={12} lg={6} xl={6} xxl={6} className="hotelBlock__elem">
           <img
             className="hotelBlock__image"
             src={pillow}
             alt="A pillow on a hotel bed"
           />
         </Col>
-        <Col xs={12} md={12} xl={12} xxl={6} className="hotelBlock__elem">
+        <Col xs={12} md={12} xl={6} xxl={6} className="hotelBlock__elem">
           <h3 className="hotelBlock__heading">Find your accommodation</h3>
           <p className="hotelBlock__para">
             Holidaze har et stort utvalg av herlige overnattingsmuligheter.

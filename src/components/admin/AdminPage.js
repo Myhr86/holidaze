@@ -34,9 +34,9 @@ export default function AdminPage({ children }) {
       <Link className="adminLinks" to={`/messages`}>
         Messages
       </Link>
-      <Link className="adminLinks" to={`/addhotel`}>
+      <a className="adminLinks" href={`https://skjaerseth.net/wpress/wp-admin/post-new.php?post_type=page`}>
         Add a Hotel
-      </Link>
+      </a>
       <Enquiries />
     </>
   );

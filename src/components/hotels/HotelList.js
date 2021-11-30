@@ -18,10 +18,8 @@ export default function HotelList() {
       try {
         const response = await http.get("wp/v2/pages");
         response.data.map(val => {
-          if (val.slug.includes("_")) {
             listHotels.push(val);
             setPosts(listHotels);
-          }
         });
       } catch (error) {
         console.log(error);

@@ -76,6 +76,36 @@ export default function AddPost() {
   }, []);
 
   return (
-    <a href="https://skjaerseth.net/wpress/wp-admin/post-new.php?post_type=page">Create a new Hotel</a>
+    <>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        {serverError && <FormError>{serverError}</FormError>}
+        <fieldset disabled={submitting}>
+          <div>
+            <input name="title" placeholder="Hotel Name" ref={register} />
+            {errors.title && <FormError>{errors.title.message}</FormError>}
+          </div>
+          <input
+            id="fileUpload"
+            type="file"
+            name="acf"
+            onChange={changeHandler}
+            ref={register}
+          />
+          <div id="slugPrefix">
+            <input name="slug" defaultValue="_" ref={register} />
+          </div>
+          <div>
+            <input name="subject" placeholder="Subject" ref={register} />
+          </div>
+          <div>
+            <textarea name="message" placeholder="Message" ref={register} />
+          </div>
+
+          <button className="btn btn-primary">
+            {submitting ? "Submitting..." : "Submit"}
+          </button>
+        </fieldset>
+      </form>
+    </>
   );
 }

@@ -51,7 +51,7 @@ export default function RecievedForms() {
 
             return (
               <Col className="messages__textDiv" key={media.id}>
-                <h4 className="messages__header">{media.title.rendered}</h4>
+                <h4 className="messages__header">{firstPara}</h4>
                 <hr className="messages__hr" />
                 <p className="messages__text">
                   <span className="labelSpan">Name:</span> {firstPara}

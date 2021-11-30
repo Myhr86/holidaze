@@ -17,6 +17,7 @@ const privData = { username: "bruker", password: "Wjsnuy99." };
 
 export default function AddPost() {
   const [auth, setAuth] = useContext(AuthContext);
+  console.log(auth);
   if (auth == undefined || null) {
     sgnIn();
   }

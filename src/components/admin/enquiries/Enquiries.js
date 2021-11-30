@@ -42,6 +42,8 @@ export default function PostList() {
 
           for (let i = 0; i < paraSplice.length; i++) {
             var firstPara = paraSplice[0].replace("<p>", "");
+            var lastName = paraSplice[1].replace("<p>", "");
+            var email = paraSplice[2].replace("</p>", "");
             var lastPara = paraSplice[3].replace("</p>", "");
 
             return (
@@ -52,10 +54,10 @@ export default function PostList() {
                   <span className="labelSpan">Name:</span> {firstPara}
                 </p>
                 <p className="messages__text">
-                  <span className="labelSpan">Email:</span> {paraSplice[1]}
+                  <span className="labelSpan">Last Name:</span> {lastName}
                 </p>
                 <p className="messages__text">
-                  <span className="labelSpan">Subject:</span> {paraSplice[2]}
+                  <span className="labelSpan">Email:</span> {email}
                 </p>
                 <p className="messages__text">
                   <span className="labelSpan">Message:</span> {lastPara}
