@@ -73,7 +73,7 @@ export default function AddPost() {
   return (
     <>
       <Row className="formWrapper">
-        <Col className="formWrapper__col" xxl={7} lg={7} md={7} sm={12}>
+        <Col className="formWrapper__col" xxl={7} lg={7} md={12} sm={12}>
           <Form
             id="contactForm"
             className="contactForm"

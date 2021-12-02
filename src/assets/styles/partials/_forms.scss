@@ -261,7 +261,7 @@ hr.contactInfo__hr:last-of-type {
   .contactInfo {
     margin-left: 3%;
     width: 30%;
-    height: 620px;
+    height: 600px;
   }
 }
 
@@ -427,6 +427,11 @@ footer {
   margin-bottom: 2%;
 }
 
+div.contactInfo {
+  margin-left: 0;
+  width: 100%;
+}
+
 #contactBtn {
   margin-left: 0;
   margin-top: 2%;
@@ -441,9 +446,13 @@ div.row {
 }
 
 div.row form {
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
   --bs-gutter-x: 0;
+}
+
+.formHeader__heading {
+  left: 28%;
 }
 
 #loginInput {
