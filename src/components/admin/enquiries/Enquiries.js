@@ -14,7 +14,6 @@ export default function PostList() {
     async function getMedia() {
       try {
         const response = await http.get("wp/v2/enquiries");
-        console.log("response", response);
         setPosts(response.data);
       } catch (error) {
         console.log(error);
@@ -44,7 +43,9 @@ export default function PostList() {
             var firstPara = paraSplice[0].replace("<p>", "");
             var lastName = paraSplice[1].replace("<p>", "");
             var email = paraSplice[2].replace("</p>", "");
-            var lastPara = paraSplice[3].replace("</p>", "");
+            var date = paraSplice[3].replace("</p>", "");
+            var night = paraSplice[4].replace("</p>", "");
+            var lastPara = paraSplice[5].replace("</p>", "");
 
             return (
               <Col className="messages__textDiv" key={media.id}>
@@ -58,6 +59,12 @@ export default function PostList() {
                 </p>
                 <p className="messages__text">
                   <span className="labelSpan">Email:</span> {email}
+                </p>
+                <p className="messages__text">
+                  <span className="labelSpan">Date:</span> {date}
+                </p>
+                <p className="messages__text">
+                  <span className="labelSpan">Number of nights:</span> {night}
                 </p>
                 <p className="messages__text">
                   <span className="labelSpan">Message:</span> {lastPara}

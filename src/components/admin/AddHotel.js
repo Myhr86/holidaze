@@ -39,12 +39,9 @@ export default function AddPost() {
     console.log(data);
 
     try {
-      console.log(data.acf[0].name);
       var newData = data.title + "|" + data.subject + "|" + data.message;
       data = { content: newData, title: data.subject, status: "publish" };
-      console.log(data);
       const response = await http.post("/wp/v2/pages", data);
-      console.log("response", response.data);
       history.push("/admin");
     } catch (error) {
       console.log("error", error);

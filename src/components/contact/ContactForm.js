@@ -13,11 +13,11 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
 const url = BASE_URL + TOKEN_PATH;
-const privData = { username: "bruker", password: "Wjsnuy99." };
+const privData = { username: "bruker", password: "lightaccess" };
 
 export default function AddPost() {
   const [auth, setAuth] = useContext(AuthContext);
-  console.log(auth);
+
   if (auth == undefined || null) {
     sgnIn();
   }
@@ -25,9 +25,7 @@ export default function AddPost() {
   async function sgnIn() {
     try {
       const response2 = await axios.post(url, privData);
-      console.log("response2", response2.data);
       var responseData = response2.data;
-      console.log(response2.data);
       setAuth(responseData);
     } catch (error) {
       console.log("error", error);
@@ -51,14 +49,12 @@ export default function AddPost() {
   async function onSubmit(data) {
     setSubmitting(true);
     setServerError(null);
-    console.log(auth);
     data.status = "publish";
 
     try {
       var newData =
         data.name + "|" + data.email + "|" + data.subject + "|" + data.message;
       data = { content: newData, title: data.subject, status: "publish" };
-      console.log(data);
       const response = await http.post("/wp/v2/myforms", data);
       window.location.reload();
       console.log("response", response.data);

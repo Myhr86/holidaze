@@ -8,7 +8,7 @@ import HotelList from "./HotelList";
 import Footer from "../Footer";
 
 const url = BASE_URL + TOKEN_PATH;
-const privData = { username: "bruker", password: "Wjsnuy99." };
+const privData = { username: "bruker", password: "lightaccess" };
 
 export default function Hotels() {
   const [auth, setAuth] = useContext(AuthContext);

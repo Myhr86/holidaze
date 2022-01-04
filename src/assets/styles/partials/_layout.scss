@@ -35,6 +35,19 @@ p {
   font-style: normal;
 }
 
+#notLoggedIn {
+  color: red;
+}
+
+section.slider {
+  width: 80%;
+  height: 90% !important;
+}
+
+svg.paging-dot {
+  fill: $white;
+}
+
 h2 {
   font-size: $h2-size;
 }
@@ -76,8 +89,12 @@ button:hover {
   margin: 0 auto;
   margin-top: 5%;
   background: none;
-  opacity: 0.8;
+  opacity: 0.9;
   width: 500px;
+}
+
+.searchField__container {
+  position: relative;
 }
 
 #searchBar {
@@ -87,13 +104,88 @@ button:hover {
   border-color: $darkblue;
 }
 
+#searchBar[placeholder] {
+  color: red;
+  padding-left: 6%;
+  padding-top: 0;
+}
+
+#searchIcon {
+  position: absolute;
+  top: 31%;
+  left: 1.5%;
+  color: $orange;
+}
+
+.resultContainer{
+  max-height: 400px;
+  height: 100%;
+   margin: 0em;
+   overflow-y: auto;
+}
+
+.resultContainer::-webkit-scrollbar {
+  display: none;
+}
+
 div.res {
   color: white;
+}
+
+div.resContainer {
+  padding: 3%;
+  padding-bottom: 0;
+}
+
+div.resContainer:hover {
+  background: $darkblue;
+  transition: 0.5s;
+}
+
+div.resContainer a {
+  text-decoration: none;
+}
+
+div.res:hover {
+  cursor: pointer;
+}
+
+.res__para {
+  margin-bottom: 5%;
+}
+
+div.res hr {
+  margin-bottom: 0;
 }
 
 div.res a{
   text-decoration: none;
   color: $orange;
+}
+
+.res__wifi {
+  background: $orange;
+  border-radius: 0.25rem;
+  padding-left: 3px;
+  padding-right: 3px;
+  width: 30%;
+  display: inline-block;
+  text-align: center;
+}
+
+.res__rooms {
+  background: $orange;
+  border-radius: 0.25rem;
+  padding-left: 3px;
+  padding-right: 3px;
+  margin-left: 3%;
+  width: 30%;
+  display: inline-block;
+  text-align: center;
+}
+
+.res__wifi:last-of-type {
+  margin-left: 2%;
 }
 
 .icons {
@@ -383,6 +475,19 @@ h2.loginLanding__header {
   text-transform: uppercase;
 }
 
+.calendar {
+  width: 50px;
+  height: 50px;
+}
+
+.calendar:hover {
+  cursor: pointer;
+}
+
+.react-calendar {
+  display: none;
+}
+
 /* Footer */
 footer {
   width: 100%;
@@ -549,7 +654,26 @@ ul.breadcrumb li a:hover {
 }
 
 @include media-breakpoint-down(xl) {
+  .res__wifi {
+    background: $orange;
+    border-radius: 0.25rem;
+    padding-left: 3px;
+    padding-right: 3px;
+    width: 30%;
+    display: inline-block;
+    text-align: center;
+  }
 
+  .res__rooms {
+    background: $orange;
+    border-radius: 0.25rem;
+    padding-left: 3px;
+    padding-right: 3px;
+    margin-left: 5px;
+    width: 55%;
+    display: inline-block;
+    text-align: center;
+  }
 }
 
 @include media-breakpoint-down(lg) {
@@ -600,12 +724,29 @@ ul.breadcrumb li a:hover {
     left: 25%;
   }
 
+  button#enquiryBtn {
+    margin-left: 10%;
+  }
+
   .hotels {
     --bs-gutter-x: 0;
   }
 
+  .hotelBlock__image {
+    margin-left: 29%;
+  }
+
   .fa-facebook {
     margin-left: 50%;
+    top: 0;
+  }
+
+  .fa-twitter {
+    top: 0;
+  }
+
+  .fa-instagram {
+    top: 0;
   }
 
   div.contactLanding__elem {
@@ -650,7 +791,7 @@ ul.breadcrumb li a:hover {
 
   button#enquiryBtn {
     margin-top: 10%;
-    margin-left: 10%;
+    margin-left: 5%;
   }
 
   .specificInfo {
@@ -927,7 +1068,8 @@ ul.breadcrumb li a:hover {
   }
 
   div.contactInfo {
-    padding-bottom: 15%;
+    padding-bottom: 0;
+    height: 600px;
   }
 
   h3.contactInfo__h3 {

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import AuthContext from "../../context/AuthContext";
 import useAxios from "../hotels/useAxios";
 import PropTypes from "prop-types";
 import Heading from "../layout/Heading";
@@ -28,18 +30,40 @@ export default function AdminPage({ children }) {
     getMedia();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  const [auth, setAuth] = useContext(AuthContext);
+
+  if(auth == (null || undefined) || auth.user_nicename === "bruker") {
+  return (
+    <p id="notLoggedIn">Not logged in</p>
+  );
+  }
+
+  else if(auth.user_nicename === "myhr86") {
   return (
     <>
       <Heading content="Admin" />
-      <Link className="adminLinks" to={`/messages`}>
-        Messages
-      </Link>
-      <a className="adminLinks" href={`https://skjaerseth.net/wpress/wp-admin/post-new.php?post_type=page`}>
-        Add a Hotel
-      </a>
+      {auth ? (
+        <>
+        <Link className="adminLinks" to={`/messages`}>
+          Messages
+        </Link>
+        <a className="adminLinks" href={`https://skjaerseth.net/wpress/wp-admin/post-new.php?post_type=page`}>
+          Add a Hotel
+        </a>
+        </>
+      ) : (
+        <p id="notLoggedIn">Not logged in</p>
+      )}
+
+
+
       <Enquiries />
     </>
+
   );
+  }
+
+
 }
 
 AdminPage.propTypes = {

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import useAxios from "./hotels/useAxios";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Search() {
   const [allData, setAllData] = useState([]);
@@ -8,6 +10,8 @@ export default function Search() {
   const [, setError] = useState(null);
 
   const http = useAxios();
+
+  const res__wifi = document.querySelector(".res__wifi");
 
   var myHotels = [];
 
@@ -35,6 +39,7 @@ export default function Search() {
   const handleSearch = event => {
     let value = event.target.value.toLowerCase();
     let result = [];
+
     if (value.length === 0) {
       let res = document.querySelector("div .searchField");
       res.style.background = "none";
@@ -49,13 +54,13 @@ export default function Search() {
         }
       });
     }
-
     setFilteredData(result);
   };
 
   return (
     <div className="searchField">
-      <div>
+      <div className="searchField__container">
+        <FontAwesomeIcon id="searchIcon" icon={faSearch} />
         <input
           id="searchBar"
           placeholder="Search..."
@@ -64,13 +69,29 @@ export default function Search() {
           onChange={event => handleSearch(event)}
         />
       </div>
-      <div style={{ padding: 10 }}>
+      <div className="resultContainer">
         {filteredData.map((value, index) => {
+          let excerpt = value.excerpt.rendered;
+          let para = value.excerpt.rendered;
+          let hotelDesc = para.slice(3, -14);
+          let removeDesc = hotelDesc.replace("Available Rooms", "");
+          let newDesc = removeDesc.replace("Free Wifi", "");
+          let wifi = value.content.rendered.match("Free Wifi");
+          let rooms = value.content.rendered.match("Available Rooms");
+
+          excerpt = excerpt.replace(/<\/?p[^>]*>/g, "");
+
           return (
             <div className="resContainer" key={value.id}>
-              <div className="res">
-                <Link to={`/details/${value.id}`}>{value.title.rendered}</Link>
-              </div>
+              <Link to={`/details/${value.id}`}>
+                <div className="res">
+                  <h3>{value.title.rendered}</h3>
+                  <p className="res__para">{newDesc}</p>
+                  <p className="res__wifi">{wifi}</p>
+                  <p className="res__rooms">{rooms}</p>
+                  <hr />
+                </div>
+              </Link>
             </div>
           );
         })}

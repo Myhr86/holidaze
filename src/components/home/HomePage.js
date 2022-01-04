@@ -1,7 +1,5 @@
 import React from "react";
 import bgImg from "../../assets/img/bergenBlue.jpg";
-import walk from "../../assets/img/walk.jpg";
-import hike from "../../assets/img/hike.jpg";
 import pillow from "../../assets/img/pillow.jpg";
 import { Link } from "react-router-dom";
 import Footer from "../Footer";
@@ -9,52 +7,33 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Search from "../Search";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faWalking } from "@fortawesome/free-solid-svg-icons";
-import { faHiking } from "@fortawesome/free-solid-svg-icons";
+import FadeBoxes from "../FadeBoxes";
+import { FaBeer } from 'react-icons/fa';
+import { useContext } from "react";
+import axios from "axios";
+import AuthContext from "../../context/AuthContext";
+import { BASE_URL, TOKEN_PATH } from "../../constants/api";
 
-const walking = <FontAwesomeIcon icon={faWalking} />;
-const hiking = <FontAwesomeIcon icon={faHiking} />;
-
-function changeBackground(e) {
-  var image = e.target;
-  var p = document.querySelector(".overLayText");
-  if (image.src === undefined) {
-    return;
-  } else {
-    image.style.opacity = 0.2;
-    image.style.transition = "1s";
-    p.style.display = "block";
-  }
-}
-
-function removeBackground(e) {
-  var image = e.target;
-  image.style.opacity = 1;
-  var p = document.querySelector(".overLayText");
-  p.style.display = "none";
-}
-
-function changeBackground2(e) {
-  var image2 = e.target;
-  var p2 = document.querySelector(".overLayText2");
-  if (image2.src === undefined) {
-    return;
-  } else {
-    image2.style.opacity = 0.2;
-    image2.style.transition = "1s";
-    p2.style.display = "block";
-  }
-}
-
-function removeBackground2(e) {
-  var image2 = e.target;
-  image2.style.opacity = 1;
-  var p2 = document.querySelector(".overLayText2");
-  p2.style.display = "none";
-}
+const url = BASE_URL + TOKEN_PATH;
+const privData = { username: "bruker", password: "lightaccess" };
 
 export default function HomePage() {
+  const [auth, setAuth] = useContext(AuthContext);
+
+  if (auth == undefined || null) {
+    sgnIn();
+  }
+
+  async function sgnIn() {
+    try {
+      const response2 = await axios.post(url, privData);
+      var responseData = response2.data;
+      setAuth(responseData);
+    } catch (error) {
+      console.log("error", error);
+    } finally {
+    }
+  }
   return (
     <>
       <Col className="block" id="search">
@@ -74,44 +53,7 @@ export default function HomePage() {
         </div>
         <h3 id="experienceH3">Experience Bergen</h3>
       </Col>
-      <Row xs={1} sm={1} md={3} lg={3} xl={3} xxl={3} className="hikeBlock">
-        <Col
-          className="hikeBlock__elem"
-          onMouseOver={changeBackground}
-          onMouseLeave={removeBackground}
-        >
-          <div className="hikeBlock__textBox">{walking}</div>
-          <p className="overLayText">
-            Bergen is a beautiful city to walk around in and explore. It has
-            many old and majestetic buildings and ornaments for you to take in.
-            Bergen is known for the docks by the sea, which are brewing with
-            activity much of the year.
-          </p>
-          <img
-            src={walk}
-            className="hikeBlock__image"
-            alt="People waking in Bergen city"
-          />
-        </Col>
-        <Col
-          className="hikeBlock__elem"
-          onMouseOver={changeBackground2}
-          onMouseLeave={removeBackground2}
-        >
-          <div className="hikeBlock__textBox">{hiking}</div>
-          <p className="overLayText2">
-            Hiking in the mountains of Bergen is an amazing experience. It has
-            many old and majestetic buildings and ornaments for you to take in.
-            Bergen is known for the docks by the sea, which are brewing with
-            activity much of the year.
-          </p>
-          <img
-            src={hike}
-            className="hikeBlock__image"
-            alt="Man hiking in the mountain"
-          />
-        </Col>
-      </Row>
+      <FadeBoxes />
       <Row xs={1} sm={1} lg={2} xl={2} xxl={2} className="hotelBlock">
         <Col xs={12} lg={6} xl={6} xxl={6} className="hotelBlock__elem">
           <img
@@ -123,9 +65,9 @@ export default function HomePage() {
         <Col xs={12} md={12} xl={6} xxl={6} className="hotelBlock__elem">
           <h3 className="hotelBlock__heading">Find your accommodation</h3>
           <p className="hotelBlock__para">
-            Holidaze har et stort utvalg av herlige overnattingsmuligheter.
-            Enten du reiser sammen med hele familien, backpacker med
-            vennegjengen eller reiser alene, har vi noe for deg!
+            Holidaze has a big selection of high quality accommodations.
+            Either you are traveling with family, backpacking with friends or
+            traveling alone, Holidaze has what you seek.
           </p>
           <Link to={`/hotels`}>
             <Button>View All Hotels</Button>

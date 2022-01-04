@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import useAxios from "./useAxios";
+import useAxios from "./hotels/useAxios";
 import { Link } from "react-router-dom";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
-export default function HotelList() {
+export default function Suggestions() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -18,8 +18,8 @@ export default function HotelList() {
       try {
         const response = await http.get("wp/v2/pages");
         response.data.map(val => {
-          listHotels.push(val);
-          setPosts(listHotels);
+            listHotels.push(val);
+            setPosts(listHotels);
         });
       } catch (error) {
         console.log(error);
@@ -39,18 +39,19 @@ export default function HotelList() {
 
   return (
     <Row xs={1} sm={1} xxl={4} className="hotels">
-      {posts.map(media => {
+      {posts.slice(0,3).map(media => {
+        let wifi = media.content.rendered.match("Free Wifi");
+        let rooms = media.content.rendered.match("Available Rooms");
+        var post = posts[Math.floor(Math.random() * 3)];
         function detectURLs(message) {
           var urlRegex = /(((https?:\/\/)|(www\.))[^\s]+)/g;
           return message.match(urlRegex);
         }
-        let wifi = media.content.rendered.match("Free Wifi");
-        let rooms = media.content.rendered.match("Available Rooms");
+
         let para = media.excerpt.rendered;
         let hotelDesc = para.slice(3, -14);
-        let removeDesc = hotelDesc.replace("Available Rooms", "");
-        let newDesc = removeDesc.replace("Free Wifi", "");
-
+        let removeDesc = hotelDesc.replace("Available Rooms", "")
+        let newDesc = removeDesc.replace("Free Wifi", "")
         let imgUrl = detectURLs(media.content.rendered);
         if (imgUrl !== null) {
           var newUrl = imgUrl[0];
@@ -59,13 +60,13 @@ export default function HotelList() {
 
         return (
           <Col className="hotels__textDiv" key={media.id}>
-            <Link to={`/details/${media.id}`}>
+            <a href={`/details/${media.id}`}>
               <img
                 alt="Hotel Building from outside"
                 className="hotels__image"
                 src={trimUrl}
               />
-            </Link>
+            </a>
             <h4 className="hotels__header">{media.title.rendered}</h4>
             <hr className="hotels__hr" />
             <p className="hotels__text">{newDesc}</p>

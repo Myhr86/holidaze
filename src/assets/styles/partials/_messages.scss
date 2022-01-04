@@ -69,7 +69,12 @@ div.messages.row {
 }
 
 @include media-breakpoint-down(lg) {
-
+  .adminLinks {
+    margin-left: 1%;
+    width: 16%;
+    padding-right: 0;
+    text-decoration: none;
+  }
 }
 
 @include media-breakpoint-down(md) {
