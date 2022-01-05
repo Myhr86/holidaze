@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import useAxios from "./hotels/useAxios";
-import { Link } from "react-router-dom";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
@@ -42,7 +41,6 @@ export default function Suggestions() {
       {posts.slice(0,3).map(media => {
         let wifi = media.content.rendered.match("Free Wifi");
         let rooms = media.content.rendered.match("Available Rooms");
-        var post = posts[Math.floor(Math.random() * 3)];
         function detectURLs(message) {
           var urlRegex = /(((https?:\/\/)|(www\.))[^\s]+)/g;
           return message.match(urlRegex);

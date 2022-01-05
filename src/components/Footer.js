@@ -8,20 +8,20 @@ export default function Footer() {
     <>
       <footer className="footer">
         <Row>
-          <Col className="footer__elem">
+          <Col sm={8} xs={6} className="footer__elem">
             <p className="footerP">
               Holidaze <span>|</span> Bergen, Norway <span>|</span>{" "}
               info@holidaze.com <span>|</span> +47 924 07 349
             </p>
             <div className="icons">
-              <FontAwesomeIcon icon={["fab", "facebook"]} />
-              <FontAwesomeIcon icon={["fab", "instagram"]} />
-              <FontAwesomeIcon icon={["fab", "twitter"]} />
+              <a href="https://facebook.com/holidaze"><FontAwesomeIcon icon={["fab", "facebook"]} /></a>
+              <a href="https://instagram.com/holidaze"><FontAwesomeIcon icon={["fab", "instagram"]} /></a>
+              <a href="https://twitter.com/holidaze"><FontAwesomeIcon icon={["fab", "twitter"]} /></a>
             </div>
           </Col>
           <Col className="footer__elem">
             <Row className="footer__row">
-              <Col md={3}>
+              <Col md={4}>
                 <h4 className="footer__h4">Visitors</h4>
                 <hr className="footer__hr"></hr>
                 <ul className="footer__ul">

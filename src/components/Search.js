@@ -11,8 +11,6 @@ export default function Search() {
 
   const http = useAxios();
 
-  const res__wifi = document.querySelector(".res__wifi");
-
   var myHotels = [];
 
   useEffect(function() {
@@ -63,7 +61,7 @@ export default function Search() {
         <FontAwesomeIcon id="searchIcon" icon={faSearch} />
         <input
           id="searchBar"
-          placeholder="Search..."
+          placeholder="Search accommodations here..."
           type="text"
           autoComplete="off"
           onChange={event => handleSearch(event)}
@@ -71,15 +69,12 @@ export default function Search() {
       </div>
       <div className="resultContainer">
         {filteredData.map((value, index) => {
-          let excerpt = value.excerpt.rendered;
           let para = value.excerpt.rendered;
           let hotelDesc = para.slice(3, -14);
           let removeDesc = hotelDesc.replace("Available Rooms", "");
           let newDesc = removeDesc.replace("Free Wifi", "");
           let wifi = value.content.rendered.match("Free Wifi");
           let rooms = value.content.rendered.match("Available Rooms");
-
-          excerpt = excerpt.replace(/<\/?p[^>]*>/g, "");
 
           return (
             <div className="resContainer" key={value.id}>

@@ -27,6 +27,7 @@ export default function Hotels() {
     } finally {
     }
   }
+
   return (
     <>
       <div className="hotelLanding">
@@ -37,7 +38,9 @@ export default function Hotels() {
         />
       </div>
       <ul className="breadcrumb">
-        <li><Link to={`/`}>Home</Link></li>
+        <li>
+          <Link to={`/`}>Home</Link>
+        </li>
         <li>Hotels</li>
       </ul>
       <h2 id="hotelsH3">Hotels in Bergen</h2>

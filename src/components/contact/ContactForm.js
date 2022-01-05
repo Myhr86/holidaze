@@ -146,9 +146,9 @@ export default function AddPost() {
           </h3>
           <hr className="contactInfo__hr" />
           <div className="contactInfo__icons">
-            <FontAwesomeIcon id="face" icon={["fab", "facebook"]} />
-            <FontAwesomeIcon id="insta" icon={["fab", "instagram"]} />
-            <FontAwesomeIcon id="twit" icon={["fab", "twitter"]} />
+            <a href="https://facebook.com/holidaze"><FontAwesomeIcon id="face" icon={["fab", "facebook"]} /></a>
+            <a href="https://instagram.com/holidaze"><FontAwesomeIcon id="insta" icon={["fab", "instagram"]} /></a>
+            <a href="https://twitter.com/holidaze"><FontAwesomeIcon id="twit" icon={["fab", "twitter"]} /></a>
           </div>
         </Col>
       </Row>

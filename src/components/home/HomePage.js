@@ -8,7 +8,6 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Search from "../Search";
 import FadeBoxes from "../FadeBoxes";
-import { FaBeer } from 'react-icons/fa';
 import { useContext } from "react";
 import axios from "axios";
 import AuthContext from "../../context/AuthContext";

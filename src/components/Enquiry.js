@@ -55,12 +55,16 @@ export default function Enquiry() {
   const [hotels, setHotels] = useState([]);
   const [, setError] = useState(null);
 
-  const [calDate, setCalDate] = useState(new Date());
-  const [newDate, setNewDate] = useState();
-  const [toDate, setToDate] = useState(Number);
+  const [calDate] = useState(new Date());
   const [constPrice, setConstPrice] = useState(Number);
   let [roomPrice, setRoomPrice] = useState(null);
-  let [days, setDays] = useState("");
+  let [days, setDays] = useState(1);
+
+  const offset2 = calDate.getTimezoneOffset();
+  let todayDate;
+  todayDate = new Date(calDate.getTime() - offset2 * 60 * 1000);
+  todayDate = calDate.toISOString().substring(0, 10);
+  const [newDate, setNewDate] = useState(todayDate);
 
   function openCal() {
     const reactCal = document.querySelector(".react-calendar");
@@ -69,15 +73,10 @@ export default function Enquiry() {
 
   function onChange(calDate, event) {
     const reactCalTile = document.querySelectorAll(".react-calendar__tile");
-    const calendar = document.querySelector(
-      ".react-calendar__month-view__days"
-    );
     for (let i = 0; i < reactCalTile.length; i++) {
       const tile = event.target;
-      const abbr = document.querySelectorAll(".react-calendar__tile abbr");
-
       reactCalTile[i].style.background = "none";
-      if (tile == reactCalTile[i]) {
+      if (tile === reactCalTile[i]) {
         reactCalTile[i].style.background = "green";
       } else if (tile.matches("abbr")) {
         tile.parentNode.style.background = "green";
@@ -143,7 +142,6 @@ export default function Enquiry() {
         "|" +
         data.message;
       data = { content: newData, title: thisHotel, status: "publish" };
-      const response = await http.post("wp/v2/enquiries", data);
       window.location.reload();
     } catch (error) {
       console.log("error", error);
@@ -171,6 +169,11 @@ export default function Enquiry() {
     roomPrice = updatePrice - updateConstPrice;
     setDays(days);
     setRoomPrice(roomPrice);
+  }
+
+  function handleSubmitDays(event) {
+    console.log(event);
+    event.preventDefault();
   }
 
   return (
@@ -221,11 +224,8 @@ export default function Enquiry() {
             <Form.Group className="mb-3 enqForm enqForm2" controlId="message">
               <Form.Label>Your Enquriy</Form.Label>
               <p className="enquiryP">
-                Ask us anything you would like to know about this accommodation.
-                It would be great if you could include how many people are in
-                your party, if you want with or without breakfast, double or
-                single beds and number of rooms. You will hear back from us
-                shortly with a selection of offers matching your needs.
+                Leave a comment if you have questions or wishes regarding this
+                hotel. You will hear back from us shortly.
               </p>
               <Form.Control
                 name="message"
@@ -241,6 +241,7 @@ export default function Enquiry() {
               <Form.Control
                 type="text"
                 name="calDate"
+                onChange={handleSubmitDays}
                 value={newDate}
                 ref={register}
               />
@@ -254,6 +255,7 @@ export default function Enquiry() {
               <Form.Control
                 name="days"
                 type="text"
+                onChange={handleSubmitDays}
                 value={days}
                 ref={register}
               />
