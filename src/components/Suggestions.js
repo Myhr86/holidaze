@@ -17,8 +17,8 @@ export default function Suggestions() {
       try {
         const response = await http.get("wp/v2/pages");
         response.data.map(val => {
-            listHotels.push(val);
-            setPosts(listHotels);
+          listHotels.push(val);
+          setPosts(listHotels);
         });
       } catch (error) {
         console.log(error);
@@ -38,7 +38,7 @@ export default function Suggestions() {
 
   return (
     <Row xs={1} sm={1} xxl={4} className="hotels">
-      {posts.slice(0,3).map(media => {
+      {posts.slice(0, 3).map(media => {
         let wifi = media.content.rendered.match("Free Wifi");
         let rooms = media.content.rendered.match("Available Rooms");
         function detectURLs(message) {
@@ -48,8 +48,8 @@ export default function Suggestions() {
 
         let para = media.excerpt.rendered;
         let hotelDesc = para.slice(3, -14);
-        let removeDesc = hotelDesc.replace("Available Rooms", "")
-        let newDesc = removeDesc.replace("Free Wifi", "")
+        let removeDesc = hotelDesc.replace("Available Rooms", "");
+        let newDesc = removeDesc.replace("Free Wifi", "");
         let imgUrl = detectURLs(media.content.rendered);
         if (imgUrl !== null) {
           var newUrl = imgUrl[0];
@@ -57,11 +57,11 @@ export default function Suggestions() {
         }
 
         return (
-          <Col className="hotels__textDiv" key={media.id}>
+          <Col className="hotels__textDivSug" key={media.id}>
             <a href={`/details/${media.id}`}>
               <img
                 alt="Hotel Building from outside"
-                className="hotels__image"
+                className="hotels__imageSug"
                 src={trimUrl}
               />
             </a>

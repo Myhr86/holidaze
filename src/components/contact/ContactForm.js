@@ -5,6 +5,7 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import FormError from "../common/FormError";
 import useAxios from "../../hooks/useAxios";
+import Modal from "react-bootstrap/Modal";
 import axios from "axios";
 import { BASE_URL, TOKEN_PATH } from "../../constants/api";
 import AuthContext from "../../context/AuthContext";
@@ -42,6 +43,10 @@ export default function AddPost() {
 
   const http = useAxios();
 
+  const [enquiryMsg, setEnquiryMsg] = useState(false);
+  const handleCloseEnq = () => setEnquiryMsg(false);
+  const handleShowEnq = () => setEnquiryMsg(true);
+
   const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(schema)
   });
@@ -56,7 +61,7 @@ export default function AddPost() {
         data.name + "|" + data.email + "|" + data.subject + "|" + data.message;
       data = { content: newData, title: data.subject, status: "publish" };
       const response = await http.post("/wp/v2/myforms", data);
-      window.location.reload();
+      setTimeout(() => {window.location.reload()}, 4000);
       console.log("response", response.data);
     } catch (error) {
       console.log("error", error);
@@ -65,6 +70,7 @@ export default function AddPost() {
       setSubmitting(false);
     }
   }
+
 
   return (
     <>
@@ -121,11 +127,19 @@ export default function AddPost() {
                 />
               </div>
 
-              <button id="contactBtn" className="btn btn-primary">
+              <button onClick={handleShowEnq} id="contactBtn" className="btn btn-primary">
                 {submitting ? "Submitting..." : "Submit"}
               </button>
             </fieldset>
           </Form>
+
+          <Modal className="modalBody" show={enquiryMsg} onHide={handleCloseEnq}>
+            <Modal.Header className="modalBody__header" closeButton>
+            </Modal.Header>
+            <Modal.Body className="modalBody__padding">
+              <h3>Thank you! Your enquiry has been successfully sent</h3>
+            </Modal.Body>
+          </Modal>
         </Col>
         <Col xxl={3} md={3} sm={12} className="contactInfo">
           <h3 className="contactInfo__h3">More Ways of Contacting Us</h3>
@@ -146,9 +160,15 @@ export default function AddPost() {
           </h3>
           <hr className="contactInfo__hr" />
           <div className="contactInfo__icons">
-            <a href="https://facebook.com/holidaze"><FontAwesomeIcon id="face" icon={["fab", "facebook"]} /></a>
-            <a href="https://instagram.com/holidaze"><FontAwesomeIcon id="insta" icon={["fab", "instagram"]} /></a>
-            <a href="https://twitter.com/holidaze"><FontAwesomeIcon id="twit" icon={["fab", "twitter"]} /></a>
+            <a href="https://facebook.com/holidaze">
+              <FontAwesomeIcon id="face" icon={["fab", "facebook"]} />
+            </a>
+            <a href="https://instagram.com/holidaze">
+              <FontAwesomeIcon id="insta" icon={["fab", "instagram"]} />
+            </a>
+            <a href="https://twitter.com/holidaze">
+              <FontAwesomeIcon id="twit" icon={["fab", "twitter"]} />
+            </a>
           </div>
         </Col>
       </Row>

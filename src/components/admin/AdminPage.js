@@ -32,38 +32,32 @@ export default function AdminPage({ children }) {
   }, []);
   const [auth, setAuth] = useContext(AuthContext);
 
-  if(auth == (null || undefined) || auth.user_nicename === "bruker") {
-  return (
-    <p id="notLoggedIn">Not logged in</p>
-  );
+  if (auth == (null || undefined) || auth.user_nicename === "bruker") {
+    return <p id="notLoggedIn">Not logged in</p>;
+  } else if (auth.user_nicename === "myhr86") {
+    return (
+      <>
+        <Heading content="Admin" />
+        {auth ? (
+          <>
+            <Link className="adminLinks" to={`/messages`}>
+              Messages
+            </Link>
+            <a
+              className="adminLinks"
+              href={`https://skjaerseth.net/wpress/wp-admin/post-new.php?post_type=page`}
+            >
+              Add a Hotel
+            </a>
+          </>
+        ) : (
+          <p id="notLoggedIn">Not logged in</p>
+        )}
+
+        <Enquiries />
+      </>
+    );
   }
-
-  else if(auth.user_nicename === "myhr86") {
-  return (
-    <>
-      <Heading content="Admin" />
-      {auth ? (
-        <>
-        <Link className="adminLinks" to={`/messages`}>
-          Messages
-        </Link>
-        <a className="adminLinks" href={`https://skjaerseth.net/wpress/wp-admin/post-new.php?post_type=page`}>
-          Add a Hotel
-        </a>
-        </>
-      ) : (
-        <p id="notLoggedIn">Not logged in</p>
-      )}
-
-
-
-      <Enquiries />
-    </>
-
-  );
-  }
-
-
 }
 
 AdminPage.propTypes = {

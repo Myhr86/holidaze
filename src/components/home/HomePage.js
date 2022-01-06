@@ -64,9 +64,9 @@ export default function HomePage() {
         <Col xs={12} md={12} xl={6} xxl={6} className="hotelBlock__elem">
           <h3 className="hotelBlock__heading">Find your accommodation</h3>
           <p className="hotelBlock__para">
-            Holidaze has a big selection of high quality accommodations.
-            Either you are traveling with family, backpacking with friends or
-            traveling alone, Holidaze has what you seek.
+            Holidaze has a big selection of high quality accommodations. Either
+            you are traveling with family, backpacking with friends or traveling
+            alone, Holidaze has what you seek.
           </p>
           <Link to={`/hotels`}>
             <Button>View All Hotels</Button>

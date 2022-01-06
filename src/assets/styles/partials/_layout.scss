@@ -675,6 +675,10 @@ ul.breadcrumb li a:hover {
     display: inline-block;
     text-align: center;
   }
+
+  .hotelBlock__elem:last-child {
+    padding-top: 15%;
+  }
 }
 
 @include media-breakpoint-down(lg) {
@@ -733,8 +737,21 @@ ul.breadcrumb li a:hover {
     --bs-gutter-x: 0;
   }
 
+  .hotelBlock__elem:last-child {
+    padding-left: 0;
+    padding-top: 10%;
+  }
+
+  p.hotelBlock__para {
+    width: 100%;
+  }
+
+  .hotelBlock {
+    height: 650px;
+  }
+
   .hotelBlock__image {
-    margin-left: 29%;
+    margin-left: 23%;
   }
 
   .fa-facebook {
@@ -765,11 +782,6 @@ ul.breadcrumb li a:hover {
   iframe.mapWrapper__iframe {
     width: 80%;
   }
-
-  .footer__row {
-
-  }
-
 }
 
 @include media-breakpoint-down(md) {
@@ -1014,6 +1026,11 @@ ul.breadcrumb li a:hover {
     padding-bottom: 5%;
   }
 
+  #loginForm {
+    padding-left: 2.5%;
+    width: 80%;
+  }
+
   .footer__h4 {
     padding-top: 15px;
   }
@@ -1071,6 +1088,15 @@ ul.breadcrumb li a:hover {
   #searchBar {
     margin-top: 0;
     width: 100%;
+  }
+
+  #searchIcon {
+    left: 2.5%;
+    top: 35%;
+  }
+
+  #searchBar[placeholder] {
+    padding-left: 9%;
   }
 
   div.contactInfo {

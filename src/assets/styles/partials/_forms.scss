@@ -278,6 +278,19 @@ hr.contactInfo__hr:last-of-type {
   margin: 0 auto;
 }
 
+.modalBody {
+  top: 0;
+}
+
+.modalBody__header {
+  background: $grey;
+}
+
+.modalBody__padding {
+  padding: 150px;
+  background: $darkblue;
+}
+
 @include media-breakpoint-down(xl) {
   .contactInfo {
     margin-left: 3%;
@@ -440,10 +453,22 @@ hr.contactInfo__hr:last-of-type {
 footer {
   margin-top: 0;
 }
-
 }
 
 @include media-breakpoint-only(xs) {
+  .modalBody {
+    top: 0;
+  }
+
+  .modalBody__header {
+    background: $grey;
+  }
+
+  .modalBody__padding {
+    padding: 100px;
+    background: $darkblue;
+  }
+
 .form-group {
   margin-bottom: 2%;
 }

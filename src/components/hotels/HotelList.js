@@ -50,6 +50,8 @@ export default function HotelList() {
         let hotelDesc = para.slice(3, -14);
         let removeDesc = hotelDesc.replace("Available Rooms", "");
         let newDesc = removeDesc.replace("Free Wifi", "");
+        let findPrice = media.content.rendered;
+        let price = findPrice.slice(-13, -5);
 
         let imgUrl = detectURLs(media.content.rendered);
         if (imgUrl !== null) {
@@ -69,6 +71,7 @@ export default function HotelList() {
             <h4 className="hotels__header">{media.title.rendered}</h4>
             <hr className="hotels__hr" />
             <p className="hotels__text">{newDesc}</p>
+            <p className="hotels__price">Price from: <span className="hotels__price price--span">{price}</span></p>
             <p className="hotels__wifi">{wifi}</p>
             <p className="hotels__rooms">{rooms}</p>
           </Col>

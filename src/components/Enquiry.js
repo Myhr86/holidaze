@@ -50,8 +50,14 @@ export default function Enquiry() {
   const [submitting, setSubmitting] = useState(false);
   const [, setServerError] = useState(null);
   const [show, setShow] = useState(false);
+  const [enquiryMsg, setEnquiryMsg] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const handleCloseEnq = () => {
+    setShow(false);
+    setEnquiryMsg(false);
+  }
+  const handleShowEnq = () => setEnquiryMsg(true);
   const [hotels, setHotels] = useState([]);
   const [, setError] = useState(null);
 
@@ -89,7 +95,9 @@ export default function Enquiry() {
     calDate = new Date(calDate.getTime() - offset * 60 * 1000);
     calDate = calDate.toISOString().substring(0, 10);
     setNewDate(calDate);
-    console.log(newDate);
+    const reactCal = document.querySelector(".react-calendar");
+    reactCal.style.display = "none";
+    //reactCalTile.addEventListener("click",)
   }
 
   const http = useAxios();
@@ -142,7 +150,8 @@ export default function Enquiry() {
         "|" +
         data.message;
       data = { content: newData, title: thisHotel, status: "publish" };
-      window.location.reload();
+      const response = await http.post("/wp/v2/enquiries", data);
+      //window.location.reload();
     } catch (error) {
       console.log("error", error);
       setServerError(error.toString());
@@ -163,7 +172,6 @@ export default function Enquiry() {
   function calculateMinus(e) {
     e.preventDefault();
     days--;
-    console.log(constPrice);
     let updatePrice = parseInt(roomPrice);
     let updateConstPrice = parseInt(constPrice);
     roomPrice = updatePrice - updateConstPrice;
@@ -271,12 +279,20 @@ export default function Enquiry() {
             <Button variant="secondary" onClick={handleClose}>
               Close
             </Button>
-            <button className="btn btn-primary">
+            <button onClick={handleShowEnq} className="btn btn-primary">
               {submitting ? "Submitting..." : "Submit"}
             </button>
           </Form>
         </Modal.Body>
         <Modal.Footer />
+      </Modal>
+
+      <Modal className="modalBody" show={enquiryMsg} onHide={handleCloseEnq}>
+        <Modal.Header className="modalBody__header" closeButton>
+        </Modal.Header>
+        <Modal.Body className="modalBody__padding">
+          <h3>Thank you! Your enquiry has been successfully sent</h3>
+        </Modal.Body>
       </Modal>
     </>
   );

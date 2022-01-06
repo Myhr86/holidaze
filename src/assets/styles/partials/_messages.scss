@@ -68,23 +68,31 @@ div.messages.row {
 
 }
 
-@include media-breakpoint-down(lg) {
+@include media-breakpoint-only(lg) {
   .adminLinks {
     margin-left: 1%;
-    width: 16%;
+    width: 10%;
     padding-right: 0;
     text-decoration: none;
   }
 }
 
-@include media-breakpoint-down(md) {
-
+@include media-breakpoint-only(md) {
+  .adminLinks {
+    margin-left: 1%;
+    width: 13%;
+  }
 
 }
 
-@include media-breakpoint-down(sm) {
+@include media-breakpoint-only(sm) {
   .messages__textDiv:first-of-type {
     margin-top: 0;
+  }
+
+  .adminLinks {
+    margin-left: 1%;
+    width: 15%;
   }
 }
 
