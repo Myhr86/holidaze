@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import useAxios from "./useAxios";
+import useAxios from "../../helpers/useAxios";
 import { Link } from "react-router-dom";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
@@ -71,7 +71,10 @@ export default function HotelList() {
             <h4 className="hotels__header">{media.title.rendered}</h4>
             <hr className="hotels__hr" />
             <p className="hotels__text">{newDesc}</p>
-            <p className="hotels__price">Price from: <span className="hotels__price price--span">{price}</span></p>
+            <p className="hotels__price">
+              Price from:{" "}
+              <span className="hotels__price price--span">{price}</span>
+            </p>
             <p className="hotels__wifi">{wifi}</p>
             <p className="hotels__rooms">{rooms}</p>
           </Col>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import useAxios from "../hotels/useAxios";
+import useAxios from "../../helpers/useAxios";
 import Suggestions from "../Suggestions";
 import Carousel from "nuka-carousel";
 import Footer from "../Footer";

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import useAxios from "../hotels/useAxios";
+import useAxios from "../../helpers/useAxios";
 import { useContext } from "react";
 import AuthContext from "../../context/AuthContext";
 import Col from "react-bootstrap/Col";

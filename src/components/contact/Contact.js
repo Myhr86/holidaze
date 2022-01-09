@@ -14,7 +14,9 @@ export default function Contact() {
         />
 
         <ul className="breadcrumb">
-          <li><Link to={`/`}>Home</Link></li>
+          <li>
+            <Link to={`/`}>Home</Link>
+          </li>
           <li>Contact Form</li>
         </ul>
         <h2 id="contactH2">CONTACT</h2>

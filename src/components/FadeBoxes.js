@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import walk from "../assets/img/walk.jpg";
-import hike from "../assets/img/hike.jpg";
+import walk from "../assets/img/walk1.jpg";
+import hike from "../assets/img/hike1.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWalking } from "@fortawesome/free-solid-svg-icons";
 import { faHiking } from "@fortawesome/free-solid-svg-icons";

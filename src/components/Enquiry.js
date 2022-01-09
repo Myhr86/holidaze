@@ -56,7 +56,7 @@ export default function Enquiry() {
   const handleCloseEnq = () => {
     setShow(false);
     setEnquiryMsg(false);
-  }
+  };
   const handleShowEnq = () => setEnquiryMsg(true);
   const [hotels, setHotels] = useState([]);
   const [, setError] = useState(null);
@@ -180,7 +180,6 @@ export default function Enquiry() {
   }
 
   function handleSubmitDays(event) {
-    console.log(event);
     event.preventDefault();
   }
 
@@ -243,7 +242,7 @@ export default function Enquiry() {
                 ref={register}
               />
             </Form.Group>
-            <Calendar onChange={onChange} value={calDate} />
+            <Calendar onChange={onChange} value={calDate} minDate={new Date()}/>
             <FcCalendar className="calendar" onClick={openCal} />
             <Form.Group className="mb-3 enqForm" controlId="newDate">
               <Form.Control
@@ -288,8 +287,7 @@ export default function Enquiry() {
       </Modal>
 
       <Modal className="modalBody" show={enquiryMsg} onHide={handleCloseEnq}>
-        <Modal.Header className="modalBody__header" closeButton>
-        </Modal.Header>
+        <Modal.Header className="modalBody__header" closeButton />
         <Modal.Body className="modalBody__padding">
           <h3>Thank you! Your enquiry has been successfully sent</h3>
         </Modal.Body>

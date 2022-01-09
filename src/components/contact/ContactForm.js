@@ -16,7 +16,7 @@ import Row from "react-bootstrap/Row";
 const url = BASE_URL + TOKEN_PATH;
 const privData = { username: "bruker", password: "lightaccess" };
 
-export default function AddPost() {
+export default function ContactForm() {
   const [auth, setAuth] = useContext(AuthContext);
 
   if (auth == undefined || null) {
@@ -61,8 +61,9 @@ export default function AddPost() {
         data.name + "|" + data.email + "|" + data.subject + "|" + data.message;
       data = { content: newData, title: data.subject, status: "publish" };
       const response = await http.post("/wp/v2/myforms", data);
-      setTimeout(() => {window.location.reload()}, 4000);
-      console.log("response", response.data);
+      setTimeout(() => {
+        window.location.reload();
+      }, 4000);
     } catch (error) {
       console.log("error", error);
       setServerError(error.toString());
@@ -70,7 +71,6 @@ export default function AddPost() {
       setSubmitting(false);
     }
   }
-
 
   return (
     <>
@@ -127,15 +127,22 @@ export default function AddPost() {
                 />
               </div>
 
-              <button onClick={handleShowEnq} id="contactBtn" className="btn btn-primary">
+              <button
+                onClick={handleShowEnq}
+                id="contactBtn"
+                className="btn btn-primary"
+              >
                 {submitting ? "Submitting..." : "Submit"}
               </button>
             </fieldset>
           </Form>
 
-          <Modal className="modalBody" show={enquiryMsg} onHide={handleCloseEnq}>
-            <Modal.Header className="modalBody__header" closeButton>
-            </Modal.Header>
+          <Modal
+            className="modalBody"
+            show={enquiryMsg}
+            onHide={handleCloseEnq}
+          >
+            <Modal.Header className="modalBody__header" closeButton />
             <Modal.Body className="modalBody__padding">
               <h3>Thank you! Your enquiry has been successfully sent</h3>
             </Modal.Body>

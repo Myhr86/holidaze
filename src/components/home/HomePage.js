@@ -1,6 +1,6 @@
 import React from "react";
 import bgImg from "../../assets/img/bergenBlue.jpg";
-import pillow from "../../assets/img/pillow.jpg";
+import pillow from "../../assets/img/pillow1.jpg";
 import { Link } from "react-router-dom";
 import Footer from "../Footer";
 import Row from "react-bootstrap/Row";

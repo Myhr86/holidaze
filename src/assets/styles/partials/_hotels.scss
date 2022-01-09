@@ -303,6 +303,11 @@ p.specificInfo__wifi {
     font-size: 18px;
   }
 
+  p.specificInfo__wifi {
+    width: 70%;
+    margin-left: 10%;
+  }
+
   .hotels__image {
     height: 250px;
   }
@@ -333,6 +338,14 @@ p.specificInfo__wifi {
     left: 20%;
   }
 
+  #enquiryBtn {
+    width: 200px;
+    height: 36px;
+    margin: 0 auto;
+    margin-left: 10%;
+    margin-top: 5%;
+  }
+
 }
 
 @include media-breakpoint-only(md) {
@@ -353,6 +366,15 @@ p.specificInfo__wifi {
 
   .hotels__rooms {
     width: 50%;
+  }
+
+  .specificInfo__wifi {
+    width: 50%;
+    margin-left: 5%;
+  }
+
+  button#enquiryBtn {
+    margin-left: 25%;
   }
 }
 

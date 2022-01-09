@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import AuthContext from "../../context/AuthContext";
-import useAxios from "../hotels/useAxios";
+import useAxios from "../../helpers/useAxios";
 import PropTypes from "prop-types";
 import Heading from "../layout/Heading";
 import Enquiries from "./enquiries/Enquiries";
